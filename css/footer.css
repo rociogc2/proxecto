@@ -1,0 +1,10 @@
+.bg-custom-blue {
+  background-color: #3498db;
+}
+
+.copy {
+  margin: 0;
+  font-family: open sans;
+  font-size: 14px;
+  text-align: right;
+}

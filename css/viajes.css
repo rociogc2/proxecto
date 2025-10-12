@@ -1,0 +1,131 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid-viajes {
+  min-height: auto;
+  background-image: url("../imagenes/fondo_viajes.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+
+.btn-custom-blue {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family: open sans;
+}
+
+.btn-custom-blue:hover{
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-danger {
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family: open sans;
+}
+
+.bnt-danger:hover {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.card {
+  width: 300px;
+  margin: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-body,
+.list-group-item {
+  background-color: #3498db;
+  color: #ffffff;
+  text-align: center;
+}
+
+.card-title, .card-text, .list-group-item {
+  font-family: open sans;
+
+}
+
+.card-body a img {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s ease;
+  border-color: #f1c40f;
+}
+
+.card-body a img:hover {
+  transform: scale(1.2);
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+
+
+.modal, .modal-title {
+  font-family: open sans;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.modal-title {
+  font-size: 24px;
+  text-align: justify;
+}
+
+.modal-content {
+  border-radius: 12px;
+  background-color: #f1c40f;
+}
+
+.modal-header {
+  position: relative;
+  justify-content: center;
+  /* centra el contenido horizontalmente */
+}
+
+.modal-header .modal-title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modal-header .btn-close {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

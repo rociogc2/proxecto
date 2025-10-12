@@ -1,0 +1,111 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+p {
+  color: #ffffff;
+}
+
+.btn-custom-blue {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family: open sans;
+}
+
+.btn-custom-blue:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-danger {
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family: open sans;
+}
+
+.bnt-danger:hover {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.encabezado {
+  background-image: url("../imagenes/globo_terraqueo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.lead, p {
+  font-weight: bold;
+  margin: 20px;
+  font-family: open sans;
+  font-size: 1.2rem;
+}
+
+.lead {
+  color: #2c3e50;
+}
+
+.iconos {
+  width: auto;
+}
+
+.bg-custom-blue {
+  background-color: #3498db;
+}
+
+
+
+
+
+.modal,
+.modal-title {
+  font-family: open sans;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.modal-title {
+  font-size: 24px;
+  text-align: justify;
+}
+
+.modal-content {
+  border-radius: 12px;
+  background-color: #f1c40f;
+}
+
+.modal-header {
+  position: relative;
+  justify-content: center;
+  /* centra el contenido horizontalmente */
+}
+
+.modal-header .modal-title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modal-header .btn-close {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}

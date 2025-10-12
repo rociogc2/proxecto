@@ -1,0 +1,47 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  color: #2c3e50;
+}
+
+label, p, .btn-danger, .btn-custom-blue {
+  font-family: open sans;
+  font-weight: bold;
+  border: none
+}
+
+.perfil p {
+  font-size: 20px;
+}
+
+.img-fluid-icono {
+  width: 40px;
+  margin: 10px;
+}
+
+.bg-image {
+  background-image: url("../imagenes/login.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.btn-custom-blue {
+  background-color: #3498DB;
+  color: white;
+  border: none;
+}
+
+.btn-custom-blue:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.perfil-text-center {
+  text-align: center;
+  margin: 25px;
+}
