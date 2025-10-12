@@ -20,26 +20,26 @@
           <p>Crea una cuenta en VIAJAMOS!</p>
         </div>
         <!-- Formulario -->
-        <form>
+        <form  method="POST" action="../php/registro.php">
           <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
-            <input type="name" class="form-control" id="name" placeholder="María" required>
+            <input type="text" class="form-control" id="name" name="nombre" placeholder="María" required>
           </div>
           <div class="mb-3">
             <label for="surname" class="form-label">Apellidos</label>
-            <input type="surname" class="form-control" id="surname" placeholder="Pérez Martínez" required>
+            <input type="text" class="form-control" id="surname" name="apellidos" placeholder="Pérez Martínez" required>
           </div>
           <div class="mb-3">
             <label for="surname" class="form-label">Nombre de usuario</label>
-            <input type="surname" class="form-control" id="surname" placeholder="xxxxx" required>
+            <input type="text" class="form-control" id="surname" name="usuario" placeholder="xxxxx" required>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" required>
+            <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com" required>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="********" required>
+            <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
           </div>
           <div class="row mb-3">
             <div class="col-6">
