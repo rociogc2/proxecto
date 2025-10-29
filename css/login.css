@@ -1,23 +1,51 @@
+/* --- ESTILOS GENERALES --- */
 body, html {
   height: 100%;
   margin: 0;
-}
-
-.bg-image {
-  background-image: url("../imagenes/login.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.form-container {
   background-color: #ffffff;
+}
+
+/* --- ESTILOS FORMULARIO --- */
+.form-container {
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
+  background-color: #eeeeee;
 }
 
+/* Contenedor de la fila principal */
+.row.h-100 {
+  display: flex;
+  align-items: center;
+}
+
+/* Columna del formulario */
+.col-md-6.bg-light {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Columna de la imagen */
+.col-md-6.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+/* Imagen alineada con el formulario */
+.col-md-6.image-container img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+  border-left: 1px solid #ddd;
+}
+
+/* --- ESTILOS BOTONES --- */
 .btn-custom {
   background-color: #3498DB;
   color: white;
@@ -26,4 +54,24 @@ body, html {
 
 .btn-custom:hover {
   background-color: #2980B9;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .col-md-6.image-container {
+    display: none;
+  }
+
+  .form-container {
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 20px 15px;
+  }
 }

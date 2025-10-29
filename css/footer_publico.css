@@ -1,0 +1,38 @@
+.footer-copy {
+  color: #2c3e50;
+  padding: 20px 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Texto de derechos */
+.footer-copy p {
+  margin: 0;
+  font-size: 14px;
+  text-align: right;
+  margin-right: 40px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .footer-copy {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .footer-copy p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-copy p {
+    font-size: 12px;
+    margin-right: 20px;
+  }
+}

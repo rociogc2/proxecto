@@ -1,60 +1,141 @@
+/*--- ESTILOS GENERALES ---*/
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.card {
-  width: 300px;
-  margin: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.border-custom-grey {
-  border: 2px solid #2c3e50;
-}
-
-.card-header {
-  color: #ffffff;
-  font-family: open sans;
-  font-size: 22px;
-  background-color: #3498db;
-}
-
-.card-header p {
-  display: inline;
-  font-size: 22px;
-  margin: 0;
-  padding-left: 8px;
-}
-
-.card-header .icono-anadir {
-  width: 24px;
-  height: 24px;
-}
-
-.card-header img {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  margin-right: 8px;
-}
-
-.card-title, .card-text{
+/*--- ESTILOS MAIN ---*/
+/*--- El encabezado con la imaxe de fondo ---*/
+header {
+  position: relative;
   color: #2c3e50;
-  font-family: open sans;
+  font-weight: bold;
+  text-align: center;
+  padding: 120px 20px 150px;
+  background-image: url('../imagenes/barcelona.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+
+header * {
+  position: relative;
+  z-index: 2;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+.acciones {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 
+/*--- BOTONES PERSONALIZADOS ---*/
+.btn-custom-blue {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+}
 
+.btn-custom-blue:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-danger {
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.bnt-danger:hover {
+  background-color: #2c3e50;
+  color: white;
+}
+
+/*--- Main con las sections ---*/
+main {
+  background-color: #3498db;
+  text-align: center;
+  padding: 4px;
+}
+
+.fila-50 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.fila-33 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+section {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: #3498db;
+  font-weight: bold;
+  cursor: pointer;
+  height: 200px;
+  position: relative;
+}
+
+.iconos {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.abrir-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  cursor: pointer;
+}
+
+ /*--- ESTILOS FOOTER ---*/
+ /*--- En este caso se sobreescribe el footer general para cambiar el color de los textos ---*/
+#footer * {
+  color: #2c3e50;
+}
+
+/*--- ESTILOS MODAL ---*/
+label {
+  font-weight: bold;
+}
 
 .modal, .modal-title {
-  font-family: open sans;
-  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
   color: #2c3e50;
 }
 
@@ -71,7 +152,6 @@ html, body {
 .modal-header {
   position: relative;
   justify-content: center;
-  /* centra el contenido horizontalmente */
 }
 
 .modal-header .modal-title {
@@ -86,13 +166,37 @@ html, body {
   transform: translateY(-50%);
 }
 
+/*--- Estilos para el checkin / out de alojamientos ---*/
+.check {
+  display: flex;
+  gap: 10px;
+}
+
+.check-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.check-item input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/*--- Botón añadir actividad ---*/
+.btn-add-actividad {
+  background-color: #2ecc71;
+  border: none;
+}
+
+/*--- Botones personalizados modales ---*/
 .btn-custom-blue {
   background-color: #3498db;
   color: #ffffff;
   border: none;
   font-weight: bold;
   margin: 10px 0;
-  font-family: open sans;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .btn-custom-blue:hover {
@@ -105,10 +209,81 @@ html, body {
   border: none;
   font-weight: bold;
   margin: 10px 0;
-  font-family: open sans;
 }
 
 .bnt-danger:hover {
   background-color: #2c3e50;
   color: white;
+}
+
+/*--- RESPONSIVE ---*/
+
+@media (max-width: 768px) {
+  header {
+    padding: 80px 15px 100px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  .acciones button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  section {
+    height: 180px;
+    font-size: 1.3em;
+  }
+
+  section:last-child {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 60px 10px 80px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  .acciones button {
+    display: block;
+    width: 80%;
+    margin: 8px auto;
+    font-size: 0.9em;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+
+  section {
+    height: 160px;
+    font-size: 1.2em;
+  }
+
+  section::after {
+    top: 8px;
+    right: 10px;
+    font-size: 1.1em;
+  }
 }

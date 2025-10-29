@@ -1,0 +1,57 @@
+<div class="modal" id="formularioAlojamientos" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nuevo alojamiento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Día inicio</label>
+            <input type="date" class="form-control" id="exampleInputText" aria-describedby="textHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputText" class="form-label">Día fin</label>
+            <input type="date" class="form-control" id="exampleInputText" aria-describedby="textHelp">
+          </div>
+          <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Seleccione alojamiento</option>
+              <option value="1">Hotel</option>
+              <option value="2">Albergue</option>
+              <option value="3">Apartamento</option>
+              <option value="4">Otro</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="exampleInputDate">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="exampleInputDate">
+          </div>
+          <div class="mb-3 check">
+            <div class="check-item">
+              <label for="checkin" class="form-label">Check in</label>
+              <input type="time" class="form-control" id="checkin">
+            </div>
+            <div class="check-item">
+              <label for="checkout" class="form-label">Check out</label>
+              <input type="time" class="form-control" id="checkout">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-6">
+              <button type="submit" class="btn btn-custom-blue w-100">Guardar</button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

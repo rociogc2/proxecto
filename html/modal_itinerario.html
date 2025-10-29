@@ -1,0 +1,59 @@
+<div class="modal" id="formularioItinerarios" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nuevo itinerario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- Selección de día -->
+          <div class="mb-3">
+            <label for="diaItinerario" class="form-label">Día</label>
+            <input type="date" class="form-control" id="diaItinerario">
+          </div>
+          <!-- Contenedor de actividades -->
+          <div id="actividadesContainer">
+            <label class="form-label">Actividades</label>
+            <div class="actividad mb-2 d-flex gap-2">
+              <input type="time" class="form-control" placeholder="Hora">
+              <input type="text" class="form-control" placeholder="Actividad">
+              <button type="button" class="btn btn-success btn-add-actividad">+</button>
+            </div>
+          </div>
+
+          <!-- Botones -->
+          <div class="row mb-3">
+            <div class="col-6">
+              <button type="submit" class="btn btn-custom-blue w-100">Guardar</button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-danger w-100" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Lógica para añadir/eliminar actividades
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('btn-add-actividad')) {
+      const container = document.getElementById('actividadesContainer');
+      const nuevaActividad = document.createElement('div');
+      nuevaActividad.classList.add('actividad', 'mb-2', 'd-flex', 'gap-2');
+      nuevaActividad.innerHTML = `
+        <input type="time" class="form-control" placeholder="Hora">
+        <input type="text" class="form-control" placeholder="Actividad">
+        <button type="button" class="btn btn-danger btn-remove-actividad">-</button>
+      `;
+      container.appendChild(nuevaActividad);
+    }
+
+    if (e.target && e.target.classList.contains('btn-remove-actividad')) {
+      e.target.parentElement.remove();
+    }
+  });
+</script>

@@ -1,0 +1,57 @@
+/*--- ESTILOS GENERALES ---*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 20px;
+  background-color: #ffffff;
+  color: #2c3e50;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 1000px;
+  margin: 0 auto 20px auto;
+  font-size: 1em;
+  line-height: 1.6;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.texto {
+  background-color: #f1c40f;
+  border-radius: 20px;
+}
+
+/*--- ESTILOS MENÚ Y FOOTER ---*/
+/*--- En este caso se sobreescriben el menú y el footer general para cambiar el color de los textos ---*/
+#menu *, #footer * {
+  color: #2c3e50;
+}
+
+/*--- REPONSIVE ---*/
+@media (max-width: 768px) {
+  body {
+    margin: 10px;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.8em;
+  }
+}
