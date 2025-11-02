@@ -7,18 +7,16 @@ html, body {
 }
 
 /*--- ESTILOS MAIN ---*/
-/*--- El encabezado con la imaxe de fondo ---*/
+/*--- El encabezado ---*/
 header {
   position: relative;
   color: #2c3e50;
   font-weight: bold;
   text-align: center;
   padding: 120px 20px 150px;
-  background-image: url('../imagenes/barcelona.jpg');
   background-size: cover;
   background-position: center;
   height: 50vh;
-
 }
 
 header::after {
@@ -72,7 +70,7 @@ h1, h2 {
   margin: 10px 0;
 }
 
-.bnt-danger:hover {
+.btn-danger:hover {
   background-color: #2c3e50;
   color: white;
 }
@@ -211,7 +209,7 @@ label {
   margin: 10px 0;
 }
 
-.bnt-danger:hover {
+.btn-danger:hover {
   background-color: #2c3e50;
   color: white;
 }
