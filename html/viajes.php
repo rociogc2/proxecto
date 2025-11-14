@@ -25,9 +25,10 @@ $conn->close();
   <title>Viajes - Viajamos!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../imagenes/icono.png">
-  <link rel="stylesheet" href="../css/viajes.css">
   <link rel="stylesheet" href="../css/menu_privado.css">
   <link rel="stylesheet" href="../css/footer_privado.css">
+  <link rel="stylesheet" href="../css/estilos_generales.css">
+  <link rel="stylesheet" href="../css/viajes.css">
 </head>
 
 <body>
@@ -44,11 +45,10 @@ $conn->close();
             <?php foreach ($viajes as $viaje): ?>
                 <div class="card" style="width: 18rem; margin-right: 20px; margin-bottom: 20px;">
                     <?php if(!empty($viaje['foto'])): ?>
-                        <img src="<?php echo htmlspecialchars($viaje['foto']); ?>" class="card-img-top" alt="foto_<?php echo htmlspecialchars($viaje['destino']); ?>">
+                      <img src="<?php echo htmlspecialchars($viaje['foto']); ?>" class="card-img-top" alt="foto_<?php echo htmlspecialchars($viaje['destino']); ?>">
                     <?php endif; ?>
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($viaje['destino']); ?></h5>
-                        <p><?php echo !empty($viaje['descripcion']) ? htmlspecialchars($viaje['descripcion']) : 'Sin descripción'; ?></p>
+                      <h5 class="card-title"><?php echo htmlspecialchars($viaje['destino']); ?></h5>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">

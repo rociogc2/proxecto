@@ -1,0 +1,64 @@
+/*--- DETALLE ITINERARIO ---*/
+/* Estilo del botón de volver */
+.btn-secondary {
+  margin-left: 950px;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de cada línea de itinerario */
+.cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  background-color: #f1c40f;
+}
+
+/* Texto del itinerario */
+.cabecera .datos {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Contenedor de iconos */
+.cabecera .iconos {
+  display: flex;
+  gap: 10px;
+}
+
+/* Estilo de los iconos */
+.iconos img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.iconos img:hover {
+  transform: scale(1.1);
+}
+
+/*--- RESPONSIVE ---*/
+@media (max-width: 768px) {
+  .btn-custom-blue {
+    margin-left: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

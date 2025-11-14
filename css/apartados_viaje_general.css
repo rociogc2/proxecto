@@ -1,0 +1,87 @@
+/*--- BOTONES ESQUINA SUPERIOR DERECHA ---*/
+.container {
+  position: relative;
+}
+
+.botones-superiores {
+  position: relative;
+  top: 10px;
+  left: 800px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-custom-blue-crear, .btn-secondary {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 0.9em;
+  border-radius: 10px;
+}
+
+/*--- ESTILOS LISTADOS ---*/
+.lista {
+  position: relative;
+  background-color: #f1c40f;
+  border-radius: 20px;
+  padding: 40px;
+  color: #2c3e50;
+  width: 100%;
+  max-width: 800px;
+  min-height: 150px;
+  box-sizing: border-box;
+  margin: 0 auto 20px auto;
+}
+
+.datos {
+  padding: 5px 0;
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+  display: block;
+}
+
+.acciones {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.acciones img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+/*--- BOTONES PERSONALIZADOS EN APARTADOS VIAJE ---*/
+.btn-custom-blue-crear {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.btn-custom-blue-crear:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #2c3e50;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/*--- ESTILOS MENÚ Y FOOTER ---*/
+/*--- En este caso se sobreescriben el menú y el footer general para cambiar el color de los textos ---*/
+#menu *, #footer * {
+  color: #2c3e50;
+}
+
+#menu .usuario {
+  content: url("../imagenes/perfil.png");
+}

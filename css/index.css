@@ -2,12 +2,14 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
   font-family: 'Open Sans', sans-serif;
+  color: #2c3e50;
   background-image: url(../imagenes/index.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #2c3e50;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +22,7 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 2rem;
+  padding: 20px 0;
 }
 
 /* Título principal */

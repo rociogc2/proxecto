@@ -1,17 +1,6 @@
 <?php
-// Incluír la conexión a la BD
-include 'conexion.php';
-
-// Iniciar sesión
-session_start();
-
-// Comprobar que el usuario está logueado
-if (!isset($_SESSION['usuario_id'])) {
-  die("Debes iniciar sesión para crear un viaje");
-}
-
-// Obtener el ID del usuario logueado
-$usuario_id = $_SESSION['usuario_id'];
+// Incluír la conexión a la BD y gestionar sesión
+include 'session.php';
 
 // Procesar el formulario si se envió
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -44,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bind_param("isssss", $usuario_id, $destino, $inicio, $fin, $descripcion, $foto);
 
   if ($stmt->execute()) {
-    // Redirigir a la página de viajes para que pudea ver el nuevo viaje
+    // Redirigir a la página de viajes para que pueda ver el nuevo viaje
     header("Location: ../html/viajes.php");
     exit();
   } else {

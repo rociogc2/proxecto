@@ -20,9 +20,9 @@ $stmt->close();
   <title>Tu perfil - Viajamos!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="../imagenes/icono.png">
-  <link rel="stylesheet" href="../css/perfil.css">
   <link rel="stylesheet" href="../css/menu_privado.css">
   <link rel="stylesheet" href="../css/footer_privado.css">
+  <link rel="stylesheet" href="../css/perfil.css">
 </head>
 <body>
   <!-- Menú -->

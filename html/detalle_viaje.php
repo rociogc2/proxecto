@@ -2,7 +2,8 @@
 include '../php/session.php';
 
 // Obtener este viaje de este usuario
-$id = $_GET['id'];
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
 $sql = "SELECT * FROM viajes WHERE id = ? AND usuario_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $id, $usuario_id);
@@ -16,6 +17,7 @@ if (!empty($foto_db)) {
 }
 ?>
 
+
 <html lang="es">
 
 <head>
@@ -26,6 +28,7 @@ if (!empty($foto_db)) {
   <link rel="icon" type="image/png" href="../imagenes/icono.png">
   <link rel="stylesheet" href="../css/menu_privado.css">
   <link rel="stylesheet" href="../css/footer_privado.css">
+  <link rel="stylesheet" href="../css/estilos_generales.css">
   <link rel="stylesheet" href="../css/detalle_viaje.css">
 </head>
 
@@ -34,19 +37,23 @@ if (!empty($foto_db)) {
   <div id="menu"></div>
   <!-- Header del viaje -->
   <header style="background-image: url('<?php echo htmlspecialchars($foto, ENT_QUOTES); ?>');">
-    <h1><?php echo htmlspecialchars($viaje['destino']); ?></h1>
-    <h2>
-      <?php
-      $fechaInicio = date("d/m/Y", strtotime($viaje['inicio']));
-      $fechaFin = date("d/m/Y", strtotime($viaje['fin']));
-      echo "Del $fechaInicio al $fechaFin";
-      ?>
-    </h2>
+    <div class="contenedor">
+      <h1><?php echo htmlspecialchars($viaje['destino']); ?></h1>
+      <h2>
+        <?php
+        $fechaInicio = date("d/m/Y", strtotime($viaje['inicio']));
+        $fechaFin = date("d/m/Y", strtotime($viaje['fin']));
+        echo "Del $fechaInicio al $fechaFin";
+        ?>
+      </h2>
+      <div class="descripcion"><?php echo !empty($viaje['descripcion']) ? htmlspecialchars($viaje['descripcion']) : ''; ?></div>
+    </div>
     <div class="acciones">
       <a class="btn btn-custom-blue" data-bs-toggle="modal" data-bs-target="#editarViaje<?php echo $id; ?>">Editar viaje</a>
       <a href="../php/borrar_viaje.php?id=<?php echo $viaje['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Seguro que quieres eliminar este viaje?');">
         Eliminar viaje
       </a>
+      <a href="viajes.php" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
     </div>
   </header>
   <!-- Cargamos el modal de editar viaje -->
@@ -56,50 +63,45 @@ if (!empty($foto_db)) {
     <div class="fila-50">
       <section>
         <img class="iconos" src="../imagenes/alojamientos.png" alt="cama">
-        <a href="vista_alojamientos.html">ALOJAMIENTOS</a>
+        <a href="vista_alojamientos.php?id=<?php echo $viaje['id']; ?>">ALOJAMIENTOS</a>
         <img src="../imagenes/anadir.png" alt="mas" class="abrir-modal" data-bs-toggle="modal" data-bs-target="#formularioAlojamientos">
       </section>
       <section>
         <img class="iconos" src="../imagenes/itinerarios.png" alt="ruta">
-        <a href="vista_itinerarios.html">ITINERARIOS</a>
+        <a href="vista_itinerarios.php?id=<?php echo $viaje['id']; ?>">ITINERARIOS</a>
         <img src="../imagenes/anadir.png" alt="mas" class="abrir-modal" data-bs-toggle="modal" data-bs-target="#formularioItinerarios">
       </section>
     </div>
     <div class="fila-33">
       <section>
         <img class="iconos" src="../imagenes/notas.png" alt="libreta">
-        <a href="vista_notas.html">NOTAS</a>
+        <a href="vista_notas.php?id=<?php echo $viaje['id']; ?>">NOTAS</a>
         <img src="../imagenes/anadir.png" alt="mas" class="abrir-modal" data-bs-toggle="modal" data-bs-target="#formularioNotas">
       </section>
       <section>
         <img class="iconos" src="../imagenes/avion.png" alt="avion">
-        <a href="vista_transportes.html">TRANSPORTES</a>
+        <a href="vista_transportes.php?id=<?php echo $viaje['id']; ?>">TRANSPORTES</a>
         <img src="../imagenes/anadir.png" alt="mas" class="abrir-modal" data-bs-toggle="modal" data-bs-target="#formularioTransportes">
       </section>
       <section>
         <img class="iconos" src="../imagenes/fotos.png" alt="camara">
-        <a href="vista_fotos.html">FOTOS</a>
+        <a href="vista_fotos.php?id=<?php echo $viaje['id']; ?>">FOTOS</a>
         <img src="../imagenes/anadir.png" alt="mas" class="abrir-modal" data-bs-toggle="modal" data-bs-target="#formularioFotos">
       </section>
     </div>
   </main>
   <!-- Modales de los apartados de los viajes -->
-  <div id="alojamientos"></div>
-  <div id="itinerarios"></div>
-  <div id="notas"></div>
-  <div id="transportes"></div>
-  <div id="fotos"></div>
+  <?php include 'modal_alojamiento.php'; ?>
+  <?php include 'modal_itinerario.php'; ?>
+  <?php include 'modal_nota.php'; ?>
+  <?php include 'modal_transporte.php'; ?>
+  <?php include 'modal_foto.php'; ?>
   <!-- Footer -->
   <div id="footer"></div>
   <script src="../js/carga-html.js"></script>
   <script>
     loadHTML("menu", "menu_privado.html");
     loadHTML("footer", "footer_privado.html");
-    loadHTML("alojamientos", "modal_alojamiento.html");
-    loadHTML("itinerarios", "modal_itinerario.html");
-    loadHTML("notas", "modal_nota.html");
-    loadHTML("transportes", "modal_transporte.html");
-    loadHTML("fotos", "modal_foto.html");
   </script>
 
   <script src="../js/formulario-modal.js"></script>

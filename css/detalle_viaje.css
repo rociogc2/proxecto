@@ -1,13 +1,4 @@
-/*--- ESTILOS GENERALES ---*/
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
-}
-
-/*--- ESTILOS MAIN ---*/
-/*--- El encabezado ---*/
+/*--- ENCABEZADO ---*/
 header {
   position: relative;
   color: #2c3e50;
@@ -16,7 +7,7 @@ header {
   padding: 120px 20px 150px;
   background-size: cover;
   background-position: center;
-  height: 50vh;
+  height: 55vh;
 }
 
 header::after {
@@ -35,8 +26,21 @@ header * {
   z-index: 2;
 }
 
-h1, h2 {
+h2 {
   font-weight: bold;
+}
+
+.contenedor {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1.0rem 3.5rem;
+  border-radius: 25px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.descripcion {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: justify;
 }
 
 .acciones {
@@ -47,52 +51,11 @@ h1, h2 {
   gap: 10px;
 }
 
-
-/*--- BOTONES PERSONALIZADOS ---*/
-.btn-custom-blue {
-  background-color: #3498db;
-  color: #ffffff;
-  border: none;
-  font-weight: bold;
-  margin: 10px 0;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.btn-custom-blue:hover {
-  background-color: #27ae60;
-  color: white;
-}
-
-.btn-danger {
-  color: #ffffff;
-  border: none;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.btn-danger:hover {
-  background-color: #2c3e50;
-  color: white;
-}
-
-/*--- Main con las sections ---*/
+/*--- SECTIONS ---*/
 main {
   background-color: #3498db;
   text-align: center;
   padding: 4px;
-}
-
-.fila-50 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
-  margin-bottom: 4px;
-}
-
-.fila-33 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
 }
 
 section {
@@ -108,6 +71,24 @@ section {
   position: relative;
 }
 
+section a {
+  text-decoration: none;
+  color:#3498db;
+}
+
+.fila-50 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.fila-33 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
 .iconos {
   width: 50px;
   margin-right: 10px;
@@ -121,97 +102,32 @@ section {
   cursor: pointer;
 }
 
- /*--- ESTILOS FOOTER ---*/
- /*--- En este caso se sobreescribe el footer general para cambiar el color de los textos ---*/
-#footer * {
-  color: #2c3e50;
+/*--- BOTONES ---*/
+.btn-custom-blue, .btn-danger {
+  margin: 10px 0;
 }
 
-/*--- ESTILOS MODAL ---*/
-label {
+.btn-secondary {
+  background-color: #2c3e50;
+  color: #ffffff;
+  border: none;
   font-weight: bold;
+  margin: 10px 0;
 }
 
-.modal, .modal-title {
-  font-family: 'Open Sans', sans-serif;
-  color: #2c3e50;
-}
-
-.modal-title {
-  font-size: 24px;
-  text-align: justify;
-}
-
-.modal-content {
-  border-radius: 12px;
-  background-color: #f1c40f;
-}
-
-.modal-header {
-  position: relative;
-  justify-content: center;
-}
-
-.modal-header .modal-title {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.modal-header .btn-close {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/*--- Estilos para el checkin / out de alojamientos ---*/
-.check {
-  display: flex;
-  gap: 10px;
-}
-
-.check-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.check-item input {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/*--- Botón añadir actividad ---*/
 .btn-add-actividad {
   background-color: #2ecc71;
   border: none;
 }
 
-/*--- Botones personalizados modales ---*/
-.btn-custom-blue {
-  background-color: #3498db;
-  color: #ffffff;
-  border: none;
-  font-weight: bold;
-  margin: 10px 0;
-  font-family: 'Open Sans', sans-serif;
+/*--- ESTILOS MENÚ Y FOOTER ---*/
+/*--- En este caso se sobreescriben el menú y el footer general para cambiar el color de los textos ---*/
+#menu *, #footer * {
+  color: #2c3e50;
 }
 
-.btn-custom-blue:hover {
-  background-color: #27ae60;
-  color: white;
-}
-
-.btn-danger {
-  color: #ffffff;
-  border: none;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-.btn-danger:hover {
-  background-color: #2c3e50;
-  color: white;
+#menu .usuario {
+  content: url("../imagenes/perfil.png");
 }
 
 /*--- RESPONSIVE ---*/

@@ -1,0 +1,25 @@
+<?php
+include 'conexion.php';
+
+if (isset($_GET['id'])) {
+  $id = intval($_GET['id']);
+
+  // Preparar la consulta
+  $sql = "DELETE FROM notas WHERE id = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $id);
+
+  if ($stmt->execute()) {
+    // Redirigimos a la página de lista de notas
+    header("Location: ../html/vista_notas.php?mensaje=eliminado");
+    exit();
+  } else {
+    echo "Error al eliminar la nota.";
+  }
+} else {
+  echo "No se recibió el ID de la nota.";
+}
+
+$stmt->close();
+$conn->close();
+?>

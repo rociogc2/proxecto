@@ -1,12 +1,19 @@
-
-/*--- ESTILOS NOTA ---*/
-.lista {
-  width: 54%;
+/*--- ESTILOS CONTENIDO DATOS ---*/
+.transporte {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 150px;
+  line-height: 0px;
 }
 
-#titulo {
-  text-align: center;
-  margin-right: 25px;
+/*--- BOTONES  ---*/
+.acciones {
+  position: relative;
+  margin-left: 420px;
+}
+
+.btn-secondary {
+  margin-bottom: 0px;
 }
 
 /*--- RESPONSIVE ---*/
