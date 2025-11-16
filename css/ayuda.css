@@ -1,0 +1,51 @@
+/*--- AYUDA ---*/
+.texto {
+  width: 100%;
+  max-width: 800px;
+  min-height: 150px;
+  box-sizing: border-box;
+  margin: 0 auto 20px auto;
+  border-radius: 20px;
+}
+.accordion-button {
+  background-color: #3498db;
+  color: #2c3e50;
+  font-weight: bold;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #3498db;
+  color: #ffffff;
+}
+.accordion-body {
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f1c40f;
+  color: #2c3e50;
+}
+
+/*--- BOTÓN ---*/
+.btn-secondary {
+  margin-left: 950px;
+}
+
+/*--- RESPONSIVE ---*/
+@media (max-width: 768px) {
+  .btn-custom-blue {
+    margin-left: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

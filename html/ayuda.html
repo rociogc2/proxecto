@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ayuda - Viajamos!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../imagenes/icono.png">
+  <link rel="stylesheet" href="../css/menu_privado.css">
+  <link rel="stylesheet" href="../css/footer_privado.css">
+  <link rel="stylesheet" href="../css/estilos_generales.css">
+  <link rel="stylesheet" href="../css/apartados_viaje_general.css">
+  <link rel="stylesheet" href="../css/ayuda.css">
+</head>
+<body>
+  <!-- Menú -->
+  <div id="menu"></div>
+  <!-- Contenido principal -->
+  <div class="container my-5">
+    <h1 class="mb-4">PREGUNTAS FRECUENTES (FAQs)</h1>
+    <a href="viajes.php" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
+    <div class="texto">
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              ¿Cómo puedo crear un viaje personalizado?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Para crear un viaje personalizado, primero debes registrarte en nuestra plataforma.</strong> Una vez registrado, inicia sesión.
+              Cuando hayas iniciado la sesión aparacerás en la página de <i>Viajes</i> donde verás un botón llamado <i>Crear viaje</i>.
+              Cubre el formulario con los datos necesarios y ya tienes tu primer viaje creado. Una vez tengas un viaje creado podrás añadirle alojamientos,
+              itinerarios, transportes y demás cosas para tener todo a mano.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              ¿Puedo subir fotos a mis viajes?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Sí, puedes subir fotos a tus viajes personalizados.</strong>
+              Al entrar en un viaje, encontrarás una sección llamada <i>fotos</i> que te da la opción para subir imágenes relacionadas con ese viaje.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              ¿Cómo puedo compartir mis viajes con otros usuarios?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Actualmente no se pueden compartir los viajes con otros usuarios.</strong>
+              Estamos trabajando para implementar esta funcionalidad en futuras actualizaciones.
+              Lo que podeis hacer, de momento, es descargar todos los miembros que vayais a hacer el viaje la aplicación y crear los mismos viajes de forma independiente.
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>Para más información consulte nuestro<a href="../manuales/manual_usuario.pdf"> manual del usuario.</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div id="footer"></div>
+  <!-- Se cargan el menu y el footer -->
+  <script src="../js/carga-html.js"></script>
+  <script>
+    loadHTML("menu", "menu_privado.html");
+    loadHTML("footer", "footer_privado.html");
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
