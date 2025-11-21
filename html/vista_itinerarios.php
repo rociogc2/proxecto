@@ -63,11 +63,9 @@ $conn->close();
             <div class="cabecera">
               <p class="datos"><?php echo htmlspecialchars($itinerario["hora"]); ?> -> <?php echo htmlspecialchars($itinerario["actividad"]); ?></p>
               <div class="acciones">
-                <a href="detalle_itinerario.php?id=<?php echo $itinerario['id']; ?>"><img src="../imagenes/vista.png" alt="ojo"></a>
-                <!-- <a data-bs-toggle="modal" data-bs-target="#editaritinerario<?php echo $itinerario['id']; ?>"><img src="../imagenes/lapiz.png" alt="editar"></a>
-                <a href="../php/borrar_itinerario.php?id=<?php echo $itinerario['id']; ?>" onclick="return confirm('¿Seguro que quieres eliminar este itinerario?');">
-                  <img src="../imagenes/basura.png" alt="borrar">
-                </a> -->
+                <a href="detalle_itinerario.php?viaje_id=<?php echo $itinerario['viaje_id']; ?>&dia=<?php echo $itinerario['dia']; ?>">
+                  <img src="../imagenes/vista.png" alt="ojo">
+                </a>
               </div>
             </div>
             <?php include 'editar_itinerario.php'; ?>

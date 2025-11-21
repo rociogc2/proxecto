@@ -1,5 +1,6 @@
 <?php
 include 'session.php';
+include 'validar_fechas.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Recibir datos del formulario
@@ -10,6 +11,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $dia = $_POST["dia"];
   $hora = $_POST["hora"];
 
+  // Validar fechas
+  $validacion = validarFechasDentroDeViaje($conn, $viaje_id, $dia, $dia);
+  if ($validacion !== true) {
+    echo "Error: $validacion";
+    exit();
+  }
 
   // Preparar y ejecutar la inserción en la BD
   $sql = "INSERT INTO transportes (viaje_id, tipo_transporte, parada, compania, dia, hora) VALUES (?, ?, ?, ?, ?, ?)";
@@ -17,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bind_param("isssss", $viaje_id, $tipo_transporte, $parada, $compania, $dia, $hora);
 
   if ($stmt->execute()) {
-      // Redirigir a lista de transportes
-      header("Location: ../html/vista_transportes.php");
-      exit();
+    // Redirigir a lista de transportes
+    header("Location: ../html/vista_transportes.php");
+    exit();
   } else {
-      echo "Error al guardar transporte: " . $stmt->error;
+    echo "Error al guardar transporte: " . $stmt->error;
   }
 
   $stmt->close();

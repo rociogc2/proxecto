@@ -9,8 +9,7 @@ if (!isset($_GET['id'])) {
 $id = intval($_GET['id']);
 
 // Consulta de datos
-$sql = "SELECT id, viaje_id, fecha_inicio, fecha_fin, tipo_alojamiento, nombre, direccion, checkin, checkout
-  FROM alojamientos WHERE id = ?";
+$sql = "SELECT id, viaje_id, fecha_inicio, fecha_fin, tipo_alojamiento, nombre, direccion, checkin, checkout FROM alojamientos WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();

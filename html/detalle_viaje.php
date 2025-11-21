@@ -10,13 +10,16 @@ $stmt->bind_param("ii", $id, $usuario_id);
 $stmt->execute();
 $viaje = $stmt->get_result()->fetch_assoc();
 
+// Obtener fechas del viaje para usarlas en los modales
+$inicioViaje = $viaje['inicio'];
+$finViaje = $viaje['fin'];
+
 // Determinar la ruta de la foto
 $foto_db = isset($viaje['foto']) ? trim($viaje['foto']) : '';
 if (!empty($foto_db)) {
   $foto = $foto_db;
 }
 ?>
-
 
 <html lang="es">
 

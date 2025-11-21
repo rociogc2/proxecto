@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+include '../php/session.php';
+$viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+$sql = "SELECT url_foto FROM fotos WHERE viaje_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $viaje_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+
 <html lang="es">
 
 <head>
@@ -25,8 +35,15 @@
       <a href="detalle_viaje.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
     </div>
     <div class="lista">
-      <!-- Aquí se listarían los alojamientos añadidos -->
-      <p>No hay fotos añadidas.</p>
+      <?php if ($result->num_rows > 0): ?>
+        <?php while ($fila = $result->fetch_assoc()): ?>
+          <div class="foto-container">
+            <img src="<?php echo $fila['url_foto']; ?>" alt="foto">
+          </div>
+        <?php endwhile; ?>
+      <?php else: ?>
+        <p>No hay fotos añadidas.</p>
+      <?php endif; ?>
     </div>
   </div>
   <!-- Footer -->

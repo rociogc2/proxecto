@@ -1,29 +1,35 @@
 <?php
 include '../php/session.php';
 
-// Obtener el ID del viaje desde la URL
+// Obtener datos desde la URL
 $viaje_id = isset($_GET['viaje_id']) ? intval($_GET['viaje_id']) : 0;
+$dia = isset($_GET['dia']) ? $_GET['dia'] : null;
 
-// Obtener los itinerarios de este viaje
-$sql = "SELECT * FROM itinerarios ORDER BY dia DESC";
+// Si falta la fecha, no podemos mostrar nada
+if ($dia === null || $dia === '') {
+  echo "No se indicó la fecha de itinerario.";
+  exit;
+}
+
+// Obtener itinerarios del mismo viaje y misma fecha
+$sql = "SELECT * FROM itinerarios
+  WHERE viaje_id = ? AND dia = ?
+  ORDER BY dia ASC, hora ASC";
+
 $stmt = $conn->prepare($sql);
-
+$stmt->bind_param("is", $viaje_id, $dia);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
-$itinerarios = [];
-while ($fila = $resultado->fetch_assoc()) {
-  $itinerarios[] = $fila;
-}
-
-// Agrupar itinerarios por fecha
+// Agrupar por fecha
 $itinerarios_por_fecha = [];
-foreach ($itinerarios as $itinerario) {
-  $fecha = $itinerario['dia'];
+
+while ($fila = $resultado->fetch_assoc()) {
+  $fecha = $fila['dia'];
   if (!isset($itinerarios_por_fecha[$fecha])) {
     $itinerarios_por_fecha[$fecha] = [];
   }
-  $itinerarios_por_fecha[$fecha][] = $itinerario;
+  $itinerarios_por_fecha[$fecha][] = $fila;
 }
 
 $stmt->close();
@@ -48,27 +54,24 @@ $conn->close();
 <body>
   <!-- Menú -->
   <div id="menu"></div>
-  <!-- Cargamos el modal de editar itinerario -->
-  <?php $datosItinerario = $itinerario; ?>
-  <?php include 'editar_itinerario.php'; ?>
   <!-- Contenido principal -->
   <div class="container my-5">
     <h1 class="mb-4">ITINERARIO</h1>
     <a href="vista_itinerarios.php" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
+    <!-- Mostrar itinerarios agrupados -->
     <?php if (!empty($itinerarios_por_fecha)): ?>
       <?php foreach ($itinerarios_por_fecha as $fecha => $actividades): ?>
         <div class="lista">
           <p class="datos">Día: <?php echo date("d/m/Y", strtotime($fecha)); ?></p>
           <?php foreach ($actividades as $itinerario): ?>
             <div class="cabecera">
-              <p class="datos">
-                <?php echo htmlspecialchars($itinerario["hora"]); ?> -> <?php echo htmlspecialchars($itinerario["actividad"]); ?>
-              </p>
+              <p class="datos"><?php echo htmlspecialchars($itinerario["hora"]); ?> -> <?php echo htmlspecialchars($itinerario["actividad"]); ?></p>
               <div class="iconos">
                 <a data-bs-toggle="modal" data-bs-target="#editaritinerario<?php echo $itinerario['id']; ?>">
                   <img src="../imagenes/lapiz.png" alt="editar">
                 </a>
-                <a href="../php/borrar_itinerario.php?id=<?php echo $itinerario['id']; ?>" onclick="return confirm('¿Seguro que quieres eliminar este itinerario?');">
+                <a href="../php/borrar_itinerario.php?id=<?php echo $itinerario['id']; ?>"
+                    onclick="return confirm('¿Seguro que quieres eliminar este itinerario?');">
                   <img src="../imagenes/basura.png" alt="borrar">
                 </a>
               </div>
@@ -83,13 +86,12 @@ $conn->close();
   </div>
   <!-- Footer -->
   <div id="footer"></div>
-  <!-- Se cargan el menu y el footer -->
+  <!-- Scripts -->
   <script src="../js/carga-html.js"></script>
   <script>
-    loadHTML("menu", "menu_privado.html");
-    loadHTML("footer", "footer_privado.html");
+      loadHTML("menu", "menu_privado.html");
+      loadHTML("footer", "footer_privado.html");
   </script>
-  <script src="../js/formulario-modal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

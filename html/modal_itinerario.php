@@ -10,7 +10,7 @@
           <input type="hidden" name="viaje_id" value="<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>">
           <div class="mb-3">
             <label for="diaItinerario" class="form-label">Día</label>
-            <input type="date" class="form-control" id="diaItinerario" name="dia" required>
+            <input type="date" class="form-control" id="diaItinerario" name="dia" min="<?= $inicioViaje ?>" max="<?= $finViaje ?>" required>
           </div>
           <!-- Contenedor de actividades -->
           <div id="actividadesContainer">

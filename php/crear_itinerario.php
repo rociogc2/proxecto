@@ -1,5 +1,6 @@
 <?php
 include 'session.php';
+include 'validar_fechas.php';
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
   header("Location: ../html/vista_itinerarios.php");
@@ -29,6 +30,13 @@ $sql = "INSERT INTO itinerarios (viaje_id, dia, hora, actividad) VALUES (?, ?, ?
 $stmt = $conn->prepare($sql);
 if (!$stmt) {
   die("Error preparando la consulta: " . $conn->error);
+}
+
+// Validar fechas
+$validacion = validarFechasDentroDeViaje($conn, $viaje_id, $dia, $dia);
+if ($validacion !== true) {
+  echo "Error: $validacion";
+  exit();
 }
 
 // Iterar e insertar cada actividad

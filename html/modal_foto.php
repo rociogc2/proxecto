@@ -6,11 +6,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form actio="../php/subir_foto.php" method="POST">
+        <form action="../php/subir_foto.php" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="viaje_id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Foto</label>
-            <input class="form-control" type="file" id="url_foto" name="url_foto">
+            <input class="form-control" type="file" id="foto" name="foto">
           </div>
           <div class="row mb-3">
             <div class="col-6">

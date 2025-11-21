@@ -9,7 +9,7 @@
         <form action="../php/crear_transporte.php" method="POST">
           <input type="hidden" name="viaje_id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
           <div class="mb-3">
-            <select class="form-select" aria-label="Default select example" name="tipo_transporte">
+            <select class="form-select" aria-label="Default select example" name="tipo_transporte" required>
               <option value="" selected disabled>Seleccione un transporte</option>
               <option value="Autobús">Autobús</option>
               <option value="Taxi/uber">Taxi/Uber</option>
@@ -21,15 +21,15 @@
           </div>
           <div class="mb-3">
             <label for="exampleInputText" class="form-label">Día</label>
-            <input type="date" class="form-control" id="dia" aria-describedby="textHelp" name="dia">
+            <input type="date" class="form-control" id="dia" aria-describedby="textHelp" name="dia" min="<?= $inicioViaje ?>" max="<?= $finViaje ?>" required>
           </div>
           <div class="mb-3">
             <label for="exampleInputDate" class="form-label">Hora</label>
-            <input type="time" class="form-control" id="hora" name="hora">
+            <input type="time" class="form-control" id="hora" name="hora" required>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Estación / Parada</label>
-            <input type="text" class="form-control" id="parada" name="parada">
+            <input type="text" class="form-control" id="parada" name="parada" required>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Comapñía</label>

@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 
   if ($stmt->execute()) {
     // Redirigimos a la página de lista de itinerarios
-    header("Location: ../html/vista_itinerarios.php?mensaje=eliminado");
+    header("Location: ../html/detalle_itinerario.php?mensaje=eliminado");
     exit();
   } else {
     echo "Error al eliminar el itinerario.";

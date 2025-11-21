@@ -81,3 +81,21 @@ label {
   top: 50%;
   transform: translateY(-50%);
 }
+
+/* --- FORZAR FOOTER ABAJO --- */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}

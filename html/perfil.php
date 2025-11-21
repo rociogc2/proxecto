@@ -61,6 +61,9 @@ $stmt->close();
             <div class="col-6">
               <a href="viajes.php" class="btn btn-danger w-100">Cancelar</a>
             </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-danger w-100" style="margin-top: 20px;">Eliminar cuenta</button>
+            </div>
           </div>
         </form>
       </div>

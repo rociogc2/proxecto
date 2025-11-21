@@ -1,6 +1,41 @@
 /*--- ESTILOS FOTOS ---*/
+/* Contenedor grid más ancho */
 .lista {
-  width: 53%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+/* Contenedor individual */
+.foto-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.20s ease-in-out;
+  height: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen */
+.foto-container img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hover */
+.foto-container:hover img {
+  transform: scale(1.1);
+}
+
+/*--- BOTONES ---*/
+.botones-superiores {
+  left: 1000px;
 }
 
 /*--- RESPONSIVE ---*/
