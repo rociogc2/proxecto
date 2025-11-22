@@ -4,18 +4,74 @@
 }
 
 .botones-superiores {
-  position: relative;
-  top: 10px;
-  left: 800px;
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  justify-content: center;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 10px;
 }
 
 .btn-custom-blue-crear, .btn-secondary {
   margin: 0;
   padding: 8px 12px;
-  font-size: 0.9em;
+  font-size: 0.85em;
   border-radius: 10px;
+  flex: 0 1 auto;
+  min-width: 120px;
+}
+
+@media (min-width: 480px) {
+  .botones-superiores {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    padding: 8px 14px;
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 576px) {
+  .botones-superiores {
+    justify-content: flex-end;
+    padding: 0 10px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    padding: 10px 14px;
+    font-size: 0.95em;
+  }
+}
+
+@media (min-width: 768px) {
+  .botones-superiores {
+    padding: 0;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    padding: 10px 16px;
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 992px) {
+  .botones-superiores {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .botones-superiores {
+    gap: 15px;
+  }
 }
 
 /*--- ESTILOS LISTADOS ---*/
@@ -23,13 +79,45 @@
   position: relative;
   background-color: #f1c40f;
   border-radius: 20px;
-  padding: 40px;
+  padding: 15px;
   color: #2c3e50;
   width: 100%;
-  max-width: 800px;
-  min-height: 150px;
+  max-width: none;
+  min-height: auto;
   box-sizing: border-box;
-  margin: 0 auto 20px auto;
+  margin: 0 0 15px 0;
+}
+
+@media (min-width: 480px) {
+  .lista {
+    padding: 20px;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media (min-width: 576px) {
+  .lista {
+    padding: 25px;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .lista {
+    padding: 30px;
+    padding-right: 30px;
+    min-height: auto;
+    margin: 0 auto 20px auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .lista {
+    padding: 40px;
+    padding-right: 40px;
+    min-height: 150px;
+    margin: 0 auto 25px auto;
+  }
 }
 
 .datos {
@@ -46,12 +134,76 @@
   right: 10px;
   margin-right: 10px;
   margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
 }
 
 .acciones img {
   width: 25px;
   height: 25px;
   cursor: pointer;
+}
+
+@media (max-width: 375px) {
+  .lista {
+    padding: 15px;
+    padding-right: 70px;
+    padding-top: 50px;
+  }
+
+  .acciones {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+
+  .acciones img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 414px) {
+  .lista {
+    padding: 15px;
+    padding-right: 70px;
+    padding-top: 45px;
+  }
+
+  .acciones {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+
+  .acciones img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 575px) {
+  .lista {
+    padding: 20px;
+    padding-right: 60px;
+  }
+
+  .acciones {
+    gap: 8px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .lista {
+    padding: 25px;
+    padding-right: 60px;
+    margin: 0 0 20px 0;
+  }
+
+  .acciones {
+    gap: 10px;
+  }
 }
 
 /*--- BOTONES PERSONALIZADOS EN APARTADOS VIAJE ---*/

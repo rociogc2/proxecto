@@ -11,7 +11,42 @@
   border: none;
   font-weight: bold;
   margin-bottom: 20px;
-  margin-left: 1180px;
+  margin-left: 0;
+  display: inline-block;
+}
+
+/* Contenedor para botones responsivo */
+.botones-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  justify-content: center;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 10px;
+}
+
+@media (min-width: 480px) {
+  .botones-contenedor {
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  .botones-contenedor {
+    justify-content: flex-end;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .botones-contenedor {
+    padding: 0;
+  }
 }
 
 /*--- ESTILOS MENÚ Y FOOTER ---*/
@@ -24,8 +59,14 @@
   content: url("../imagenes/perfil.png");
 }
 
-/*--- REPONSIVE ---*/
-@media (max-width: 768px) {
+/*--- RESPONSIVE ---*/
+@media (min-width: 576px) {
+  .texto {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
   body {
     margin: 10px;
   }
@@ -33,14 +74,38 @@
   p {
     font-size: 0.9em;
   }
+
+  .texto {
+    padding: 30px;
+  }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 992px) {
+  .texto {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 575px) {
   h1 {
     font-size: 1.5em;
   }
 
   p {
     font-size: 0.8em;
+  }
+
+  .texto {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 0.75em;
   }
 }

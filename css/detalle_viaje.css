@@ -4,10 +4,11 @@ header {
   color: #2c3e50;
   font-weight: bold;
   text-align: center;
-  padding: 120px 20px 150px;
+  padding: 60px 20px 80px;
   background-size: cover;
   background-position: center;
-  height: 55vh;
+  height: auto;
+  min-height: 400px;
 }
 
 header::after {
@@ -32,9 +33,11 @@ h2 {
 
 .contenedor {
   background-color: rgba(255, 255, 255, 0.6);
-  padding: 1.0rem 3.5rem;
+  padding: 1.5rem 2rem;
   border-radius: 25px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .descripcion {
@@ -55,7 +58,7 @@ h2 {
 main {
   background-color: #3498db;
   text-align: center;
-  padding: 4px;
+  padding: 8px;
 }
 
 section {
@@ -63,11 +66,11 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 36px;
+  font-size: 24px;
   color: #3498db;
   font-weight: bold;
   cursor: pointer;
-  height: 200px;
+  height: 180px;
   position: relative;
 }
 
@@ -153,6 +156,7 @@ section a {
 @media (max-width: 768px) {
   header {
     padding: 80px 15px 100px;
+    height: auto;
   }
 
   h1 {
@@ -168,54 +172,82 @@ section a {
     font-size: 0.9em;
   }
 
-  main {
+  .fila-50 {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+  }
+
+  .fila-33 {
+    grid-template-columns: 1fr 1fr;
   }
 
   section {
-    height: 180px;
+    height: 150px;
     font-size: 1.3em;
   }
 
   section:last-child {
-    grid-column: 1;
+    grid-column: auto;
   }
 }
 
 @media (max-width: 480px) {
   header {
-    padding: 60px 10px 80px;
+    padding: 40px 10px 60px;
+    height: auto;
+  }
+
+  .contenedor {
+    padding: 0.8rem 1rem;
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
   h2 {
-    font-size: 1em;
+    font-size: 0.9em;
+  }
+
+  .descripcion {
+    font-size: 14px;
   }
 
   .acciones button {
     display: block;
     width: 80%;
     margin: 8px auto;
-    font-size: 0.9em;
+    font-size: 0.85em;
+    padding: 6px 12px;
   }
 
   main {
+    padding: 2px;
+  }
+
+  .fila-50 {
     grid-template-columns: 1fr;
-    gap: 1px;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .fila-33 {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 
   section {
-    height: 160px;
-    font-size: 1.2em;
+    height: 140px;
+    font-size: 1em;
   }
 
   section::after {
-    top: 8px;
-    right: 10px;
-    font-size: 1.1em;
+    top: 5px;
+    right: 5px;
+    font-size: 0.9em;
+  }
+
+  .iconos {
+    width: 40px;
+    margin-right: 8px;
   }
 }

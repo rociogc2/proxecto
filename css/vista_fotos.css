@@ -2,12 +2,12 @@
 /* Contenedor grid más ancho */
 .lista {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 25px;
-  margin-top: 25px;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 15px;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0 0 15px 0;
   background-color: #ffffff;
 }
 
@@ -35,27 +35,80 @@
 
 /*--- BOTONES ---*/
 .botones-superiores {
-  left: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  justify-content: center;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 10px;
 }
 
-/*--- RESPONSIVE ---*/
-@media (max-width: 768px) {
+.btn-custom-blue-crear, .btn-secondary {
+  flex: 0 1 auto;
+  min-width: 120px;
+  font-size: 0.85em;
+  padding: 8px 12px;
+}
+
+@media (min-width: 480px) {
+  .botones-superiores {
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    font-size: 0.9em;
+    padding: 8px 14px;
+  }
+
+  .lista {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 0 0 20px 0;
+  }
+}
+
+@media (min-width: 576px) {
+  .botones-superiores {
+    justify-content: flex-end;
+    padding: 0 10px;
+  }
+  .lista {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .botones-superiores {
+    padding: 0;
+  }
+
   .btn-custom-blue {
     margin-left: auto;
     display: block;
   }
+  .lista {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 0 auto 20px auto;
+  }
 }
 
-@media (max-width: 480px) {
-  body {
-    margin: 10px;
+@media (min-width: 992px) {
+  .lista {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
   }
+}
 
-  h1 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 14px;
+@media (min-width: 1200px) {
+  .lista {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
   }
 }

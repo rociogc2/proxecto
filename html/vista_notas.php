@@ -41,7 +41,7 @@ $conn->close();
   <!-- Contenido principal -->
   <div class="container my-5">
     <h1 class="mb-4">NOTAS</h1>
-    <div class="botones-superiores">
+    <div class="botones-superiores d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-sm-end">
       <a class="btn btn-custom-blue-crear" data-bs-toggle="modal" data-bs-target="#formularioNotas">Crear nota</a>
       <a href="detalle_viaje.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
     </div>

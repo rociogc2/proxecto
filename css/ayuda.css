@@ -25,18 +25,58 @@
 
 /*--- BOTÓN ---*/
 .btn-secondary {
-  margin-left: 950px;
+  margin-left: 0;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+/* Contenedor para botones responsivo */
+.botones-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  justify-content: center;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 10px;
+}
+
+@media (min-width: 480px) {
+  .botones-contenedor {
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  .botones-contenedor {
+    justify-content: flex-end;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .botones-contenedor {
+    padding: 0;
+  }
 }
 
 /*--- RESPONSIVE ---*/
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .btn-custom-blue {
     margin-left: auto;
     display: block;
   }
+
+  .texto {
+    padding: 30px;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   body {
     margin: 10px;
   }
@@ -47,5 +87,15 @@
 
   p {
     font-size: 14px;
+  }
+
+  .texto {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .texto {
+    padding: 40px;
   }
 }
