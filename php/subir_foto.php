@@ -26,10 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $stmt->bind_param("is", $viaje_id, $foto);
 
       if ($stmt->execute()) {
-          header("Location: ../html/vista_fotos.php");
-          exit();
+        header("Location: ../html/vista_fotos.php?id=$viaje_id&mensaje=creado");
+        exit();
       } else {
-          echo "Error al guardar en la base de datos: " . $stmt->error;
+        echo "Error al guardar en la base de datos: " . $stmt->error;
       }
       $stmt->close();
     } else {

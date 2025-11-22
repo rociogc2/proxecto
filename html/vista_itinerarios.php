@@ -4,10 +4,20 @@ include '../php/session.php';
 // Obtener el ID del viaje desde la URL
 $viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Obtener los itinerarios de este viaje
-$sql = "SELECT * FROM itinerarios ORDER BY dia DESC";
-$stmt = $conn->prepare($sql);
+// Obtener datos del viaje para las fechas límite
+$sql_viaje = "SELECT inicio, fin FROM viajes WHERE id = ?";
+$stmt_viaje = $conn->prepare($sql_viaje);
+$stmt_viaje->bind_param("i", $viaje_id);
+$stmt_viaje->execute();
+$viaje_data = $stmt_viaje->get_result()->fetch_assoc();
+$inicioViaje = $viaje_data['inicio'] ?? '';
+$finViaje = $viaje_data['fin'] ?? '';
+$stmt_viaje->close();
 
+// Obtener los itinerarios del viaje
+$sql = "SELECT * FROM itinerarios WHERE viaje_id = ? ORDER BY dia DESC";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $viaje_id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 

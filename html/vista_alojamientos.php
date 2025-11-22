@@ -4,10 +4,20 @@ include '../php/session.php';
 // Obtener el ID del viaje desde la URL
 $viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Obtener los alojameintos de este viaje
-$sql = "SELECT * FROM alojamientos ORDER BY fecha_inicio DESC";
-$stmt = $conn->prepare($sql);
+// Obtener datos del viaje para las fechas límite
+$sql_viaje = "SELECT inicio, fin FROM viajes WHERE id = ?";
+$stmt_viaje = $conn->prepare($sql_viaje);
+$stmt_viaje->bind_param("i", $viaje_id);
+$stmt_viaje->execute();
+$viaje_data = $stmt_viaje->get_result()->fetch_assoc();
+$inicioViaje = $viaje_data['inicio'] ?? '';
+$finViaje = $viaje_data['fin'] ?? '';
+$stmt_viaje->close();
 
+// Obtener los alojamientos de este viaje
+$sql = "SELECT * FROM alojamientos WHERE viaje_id = ? ORDER BY fecha_inicio DESC";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $viaje_id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
@@ -58,14 +68,22 @@ $conn->close();
           <div class="acciones">
             <a href="detalle_alojamiento.php?id=<?php echo $alojamiento['id']; ?>"><img src="../imagenes/vista.png" alt="ojo"></a>
             <a data-bs-toggle="modal" data-bs-target="#editarAlojamiento<?php echo $alojamiento['id']; ?>"><img src="../imagenes/lapiz.png" alt="editar"></a>
-            <a href="../php/borrar_alojamiento.php?id=<?php echo $alojamiento['id']; ?>"
-              onclick="return confirm('¿Seguro que quieres eliminar este alojamiento?');">
+            <a data-bs-toggle="modal" data-bs-target="#eliminarAlojamiento<?php echo $alojamiento['id']; ?>" style="cursor: pointer;">
               <img src="../imagenes/basura.png" alt="borrar">
             </a>
           </div>
         </div>
         <!-- Incluir el modal de edición de este alojamiento -->
         <?php include 'editar_alojamiento.php'; ?>
+        <!-- Modal de confirmación para eliminar alojamiento -->
+        <?php
+        $modal_id = "eliminarAlojamiento" . $alojamiento['id'];
+        $titulo_modal = "Eliminar alojamiento";
+        $mensaje_modal = "¿Estás seguro de que deseas eliminar este alojamiento? Esta acción es irreversible.";
+        $url_accion = "../php/borrar_alojamiento.php?id=" . $alojamiento['id'];
+        $texto_boton = "Eliminar alojamiento";
+        include 'modal_eliminar.php';
+        ?>
       <?php endforeach; ?>
     <?php else: ?>
       <p>No tienes alojamientos creados aún.</p>

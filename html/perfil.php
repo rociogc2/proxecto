@@ -11,7 +11,6 @@ $stmt->close();
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -61,9 +60,9 @@ $stmt->close();
             <div class="col-6">
               <a href="viajes.php" class="btn btn-danger w-100">Cancelar</a>
             </div>
-            <div class="mb-3">
-              <button type="submit" class="btn btn-danger w-100" style="margin-top: 20px;">Eliminar cuenta</button>
-            </div>
+          </div>
+          <div class="mb-3">
+            <button type="button" class="btn btn-danger w-100" style="margin-top: 20px;" data-bs-toggle="modal" data-bs-target="#modalEliminarCuenta">Eliminar cuenta</button>
           </div>
         </form>
       </div>
@@ -71,6 +70,15 @@ $stmt->close();
   </div>
   <!-- Footer -->
   <div id="footer"></div>
+  <!-- Modal de confirmación para eliminar cuenta -->
+  <?php
+  $modal_id = "modalEliminarCuenta";
+  $titulo_modal = "Eliminar cuenta";
+  $mensaje_modal = "¿Estás seguro de que deseas eliminar tu cuenta? Esta acción es irreversible y se perderán todos tus datos.";
+  $url_accion = "../php/eliminar_cuenta.php";
+  $texto_boton = "Eliminar cuenta";
+  include 'modal_eliminar.php';
+  ?>
   <!-- Se cargan el menu y el footer -->
   <script src="../js/carga-html.js"></script>
   <script>

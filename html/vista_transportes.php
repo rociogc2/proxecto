@@ -4,10 +4,20 @@ include '../php/session.php';
 // Obtener el ID del viaje desde la URL
 $viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Obtener los transportes de este viaje
-$sql = "SELECT * FROM transportes ORDER BY dia DESC";
-$stmt = $conn->prepare($sql);
+// Obtener datos del viaje para las fechas límite
+$sql_viaje = "SELECT inicio, fin FROM viajes WHERE id = ?";
+$stmt_viaje = $conn->prepare($sql_viaje);
+$stmt_viaje->bind_param("i", $viaje_id);
+$stmt_viaje->execute();
+$viaje_data = $stmt_viaje->get_result()->fetch_assoc();
+$inicioViaje = $viaje_data['inicio'] ?? '';
+$finViaje = $viaje_data['fin'] ?? '';
+$stmt_viaje->close();
 
+// Obtener los transportes de este viaje
+$sql = "SELECT * FROM transportes WHERE viaje_id = ? ORDER BY dia DESC";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $viaje_id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
@@ -58,14 +68,22 @@ $conn->close();
         <div class="acciones">
           <a href="detalle_transporte.php?id=<?php echo $transporte['id']; ?>"><img src="../imagenes/vista.png" alt="ojo"></a>
           <a data-bs-toggle="modal" data-bs-target="#editartransporte<?php echo $transporte['id']; ?>"><img src="../imagenes/lapiz.png" alt="editar"></a>
-          <a href="../php/borrar_transporte.php?id=<?php echo $transporte['id']; ?>"
-            onclick="return confirm('¿Seguro que quieres eliminar este transporte?');">
+          <a data-bs-toggle="modal" data-bs-target="#eliminarTransporte<?php echo $transporte['id']; ?>" style="cursor: pointer;">
             <img src="../imagenes/basura.png" alt="borrar">
           </a>
         </div>
       </div>
       <!-- Incluir el modal de edición de este transporte -->
       <?php include 'editar_transporte.php'; ?>
+      <!-- Modal de confirmación para eliminar transporte -->
+      <?php
+      $modal_id = "eliminarTransporte" . $transporte['id'];
+      $titulo_modal = "Eliminar transporte";
+      $mensaje_modal = "¿Estás seguro de que deseas eliminar este transporte? Esta acción es irreversible.";
+      $url_accion = "../php/borrar_transporte.php?id=" . $transporte['id'];
+      $texto_boton = "Eliminar transporte";
+      include 'modal_eliminar.php';
+      ?>
     <?php endforeach; ?>
     <?php else: ?>
       <p>No tienes transportes creados aún.</p>

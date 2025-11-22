@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($stmt->execute()) {
     // Redirigir de vuelta a la página del nota editado
-    header("Location: ../html/vista_notas.php?id=$id&mensaje=actualizado");
+    header("Location: ../html/vista_notas.php?id=$viaje_id&mensaje=actualizado");
     exit();
   } else {
     echo "Error al actualizar el nota: " . $stmt->error;

@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bind_param("isssssss", $viaje_id, $inicio, $fin, $tipo, $nombre, $direccion, $checkin, $checkout);
 
   if ($stmt->execute()) {
-    header("Location: ../html/vista_alojamientos.php");
+    header("Location: ../html/vista_alojamientos.php?id=$viaje_id&mensaje=creado");
     exit();
   } else {
     echo "Error al guardar alojamiento: " . $stmt->error;

@@ -31,7 +31,7 @@ $result = $stmt->get_result();
   <div class="container my-5">
     <h1 class="mb-4">FOTOS</h1>
     <div class="botones-superiores">
-      <a class="btn btn-custom-blue-crear" data-bs-toggle="modal" data-bs-target="#formularioAlojamientos">Subir foto</a>
+      <a class="btn btn-custom-blue-crear" data-bs-toggle="modal" data-bs-target="#formularioFotos">Subir foto</a>
       <a href="detalle_viaje.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
     </div>
     <div class="lista">
@@ -48,6 +48,8 @@ $result = $stmt->get_result();
   </div>
   <!-- Footer -->
   <div id="footer"></div>
+  <!-- Modal para subir foto -->
+  <?php include 'modal_foto.php'; ?>
   <!-- Se cargan el menu y el footer -->
   <script src="../js/carga-html.js"></script>
   <script>

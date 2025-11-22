@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <form action="../php/crear_nota.php" method="post">
-          <input type="hidden" name="viaje_id" value="<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>">
+          <input type="hidden" name="viaje_id" value="<?php echo htmlspecialchars($viaje_id); ?>">
           <div class="mb-3">
             <label for="tituloNota" class="form-label">Título</label>
             <input type="text" class="form-control" id="tituloNota" name="titulo" required>

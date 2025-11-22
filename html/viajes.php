@@ -10,7 +10,7 @@ $resultado = $stmt->get_result();
 
 $viajes = [];
 while ($fila = $resultado->fetch_assoc()) {
-    $viajes[] = $fila;
+  $viajes[] = $fila;
 }
 
 $stmt->close();
@@ -35,6 +35,7 @@ $conn->close();
   <!-- Menú -->
   <div id="menu"></div>
   <div class="container-fluid-viajes">
+    <h1>Bienvenido/a <?php echo htmlspecialchars($nombre); ?></h1>
     <!-- Botón arriba -->
     <a id="crear" class="btn btn-custom-blue btn-lg mb-4" data-bs-toggle="modal" data-bs-target="#formularioViajes">Crear viaje</a>
     <!-- Contenedor de cartas -->
@@ -42,35 +43,43 @@ $conn->close();
       <!-- Las cartas de los viajes se cargan dinámicamente cuando haya viajes creados -->
       <div class="cards-wrapper d-flex flex-wrap">
         <?php if (!empty($viajes)): ?>
-            <?php foreach ($viajes as $viaje): ?>
-                <div class="card" style="width: 18rem; margin-right: 20px; margin-bottom: 20px;">
-                    <?php if(!empty($viaje['foto'])): ?>
-                      <img src="<?php echo htmlspecialchars($viaje['foto']); ?>" class="card-img-top" alt="foto_<?php echo htmlspecialchars($viaje['destino']); ?>">
-                    <?php endif; ?>
-                    <div class="card-body">
-                      <h5 class="card-title"><?php echo htmlspecialchars($viaje['destino']); ?></h5>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                          <?php
-                          $fechaInicio = date("d/m/Y", strtotime($viaje['inicio']));
-                          $fechaFin = date("d/m/Y", strtotime($viaje['fin']));
-                          echo "Del $fechaInicio al $fechaFin";
-                          ?>
-                        </li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="detalle_viaje.php?id=<?php echo $viaje['id']; ?>" class="card-link"><img src="../imagenes/ver.png" alt="ojo"></a>
-                        <a data-bs-toggle="modal" data-bs-target="#editarViaje<?php echo $viaje['id']; ?>"><img src="../imagenes/editar.png" alt="editar"></a>
-                        <a href="../php/borrar_viaje.php?id=<?php echo $viaje['id']; ?>" class="card-link"
-                        onclick="return confirm('¿Seguro que quieres eliminar este viaje?');">
-                        <img src="../imagenes/borrar.png" alt="borrar">
-                      </a>
-                    </div>
-                  </div>
-                <!-- Cargamos el modal de editar viaje -->
-                <?php include 'editar_viaje.php'; ?>
-            <?php endforeach; ?>
+          <?php foreach ($viajes as $viaje): ?>
+            <div class="card" style="width: 18rem; margin-right: 20px; margin-bottom: 20px;">
+              <?php if(!empty($viaje['foto'])): ?>
+                <img src="<?php echo htmlspecialchars($viaje['foto']); ?>" class="card-img-top" alt="foto_<?php echo htmlspecialchars($viaje['destino']); ?>">
+              <?php endif; ?>
+              <div class="card-body">
+                <h5 class="card-title"><?php echo htmlspecialchars($viaje['destino']); ?></h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <?php
+                  $fechaInicio = date("d/m/Y", strtotime($viaje['inicio']));
+                  $fechaFin = date("d/m/Y", strtotime($viaje['fin']));
+                  echo "Del $fechaInicio al $fechaFin";
+                  ?>
+                </li>
+              </ul>
+              <div class="card-body">
+                <a href="detalle_viaje.php?id=<?php echo $viaje['id']; ?>" class="card-link"><img src="../imagenes/ver.png" alt="ojo"></a>
+                <a data-bs-toggle="modal" data-bs-target="#editarViaje<?php echo $viaje['id']; ?>"><img src="../imagenes/editar.png" alt="editar"></a>
+                <a data-bs-toggle="modal" data-bs-target="#eliminarViaje<?php echo $viaje['id']; ?>" style="cursor: pointer;">
+                  <img src="../imagenes/borrar.png" alt="borrar">
+                </a>
+              </div>
+            </div>
+            <!-- Cargamos el modal de editar viaje -->
+            <?php include 'editar_viaje.php'; ?>
+            <!-- Modal de confirmación para eliminar viaje -->
+            <?php
+            $modal_id = "eliminarViaje" . $viaje['id'];
+            $titulo_modal = "Eliminar viaje";
+            $mensaje_modal = "¿Estás seguro de que deseas eliminar este viaje? Esta acción es irreversible y se perderán todos los datos asociados.";
+            $url_accion = "../php/borrar_viaje.php?id=" . $viaje['id'];
+            $texto_boton = "Eliminar viaje";
+            include 'modal_eliminar.php';
+            ?>
+          <?php endforeach; ?>
         <?php else: ?>
             <p>No tienes viajes creados aún.</p>
         <?php endif; ?>

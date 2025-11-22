@@ -53,7 +53,7 @@ if (!empty($foto_db)) {
     </div>
     <div class="acciones">
       <a class="btn btn-custom-blue" data-bs-toggle="modal" data-bs-target="#editarViaje<?php echo $id; ?>">Editar viaje</a>
-      <a href="../php/borrar_viaje.php?id=<?php echo $viaje['id']; ?>" class="btn btn-danger" onclick="return confirm('¿Seguro que quieres eliminar este viaje?');">
+      <a data-bs-toggle="modal" data-bs-target="#eliminarViaje<?php echo $viaje['id']; ?>" class="btn btn-danger" style="cursor: pointer;">
         Eliminar viaje
       </a>
       <a href="viajes.php" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
@@ -62,6 +62,15 @@ if (!empty($foto_db)) {
   <!-- Cargamos el modal de editar viaje -->
   <?php $datosViaje = $viaje; ?>
   <?php include 'editar_viaje.php'; ?>
+  <!-- Modal de confirmación para eliminar viaje -->
+  <?php
+  $modal_id = "eliminarViaje" . $viaje['id'];
+  $titulo_modal = "Eliminar viaje";
+  $mensaje_modal = "¿Estás seguro de que deseas eliminar este viaje? Esta acción es irreversible y se perderán todos los datos asociados.";
+  $url_accion = "../php/borrar_viaje.php?id=" . $viaje['id'];
+  $texto_boton = "Eliminar viaje";
+  include 'modal_eliminar.php';
+  ?>
   <main>
     <div class="fila-50">
       <section>

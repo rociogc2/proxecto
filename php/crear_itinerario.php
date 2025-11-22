@@ -3,7 +3,7 @@ include 'session.php';
 include 'validar_fechas.php';
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-  header("Location: ../html/vista_itinerarios.php");
+  header("Location: ../html/vista_itinerarios.php?id=$viaje_id");
   exit();
 }
 
@@ -56,6 +56,6 @@ $stmt->close();
 $conn->close();
 
 // Redirigir a la vista
-header("Location: ../html/vista_itinerarios.php");
+header("Location: ../html/vista_itinerarios.php?id=$viaje_id&mensaje=creado");
 exit();
 ?>

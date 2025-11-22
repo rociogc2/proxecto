@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($stmt->execute()) {
       // Redirigir a lista de notas
-      header("Location: ../html/vista_notas.php");
+      header("Location: ../html/vista_notas.php?id=$viaje_id&mensaje=creado");
       exit();
   } else {
       echo "Error al guardar nota: " . $stmt->error;

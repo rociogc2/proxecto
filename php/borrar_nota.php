@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 
   if ($stmt->execute()) {
     // Redirigimos a la página de lista de notas
-    header("Location: ../html/vista_notas.php?mensaje=eliminado");
+    header("Location: ../html/vista_notas.php?id=$id&mensaje=eliminado");
     exit();
   } else {
     echo "Error al eliminar la nota.";

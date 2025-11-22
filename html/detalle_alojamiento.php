@@ -64,16 +64,24 @@ if (!isset($viaje_id) && isset($alojamiento['viaje_id'])) {
       </div>
       <div class="acciones">
         <button type="button" class="btn btn-custom-blue" data-bs-toggle="modal" data-bs-target="#editarAlojamiento<?php echo $alojamiento['id']; ?>">Modificar</button>
-        <a class="btn btn-danger" href="../php/borrar_alojamiento.php?id=<?= $id ?>"
-          onclick="return confirm('¿Seguro que quieres eliminar este alojamiento?');">
+        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarAlojamiento<?php echo $alojamiento['id']; ?>" style="cursor: pointer;">
           Eliminar
         </a>
-        <a href="vista_alojamientos.php" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
+        <a href="vista_alojamientos.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
       </div>
     </div>
   </div>
   <!-- Footer -->
   <div id="footer"></div>
+  <!-- Modal de confirmación para eliminar alojamiento -->
+  <?php
+  $modal_id = "eliminarAlojamiento" . $alojamiento['id'];
+  $titulo_modal = "Eliminar alojamiento";
+  $mensaje_modal = "¿Estás seguro de que deseas eliminar este alojamiento? Esta acción es irreversible.";
+  $url_accion = "../php/borrar_alojamiento.php?id=" . $alojamiento['id'];
+  $texto_boton = "Eliminar alojamiento";
+  include 'modal_eliminar.php';
+  ?>
   <!-- Se cargan el menu y el footer -->
   <script src="../js/carga-html.js"></script>
   <script>

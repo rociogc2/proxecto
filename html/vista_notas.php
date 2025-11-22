@@ -4,10 +4,10 @@ include '../php/session.php';
 // Obtener el ID del viaje desde la URL
 $viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Obtener los alojameintos de este viaje
-$sql = "SELECT * FROM notas ORDER BY titulo DESC";
+// Obtener las notas de este viaje
+$sql = "SELECT * FROM notas WHERE viaje_id = ? ORDER BY titulo DESC";
 $stmt = $conn->prepare($sql);
-
+$stmt->bind_param("i", $viaje_id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
@@ -55,14 +55,22 @@ $conn->close();
         </div>
         <div class="acciones">
           <a data-bs-toggle="modal" data-bs-target="#editarNota<?php echo $nota['id']; ?>"><img src="../imagenes/lapiz.png" alt="editar"></a>
-          <a href="../php/borrar_nota.php?id=<?php echo $nota['id']; ?>"
-            onclick="return confirm('¿Seguro que quieres eliminar este nota?');">
+          <a data-bs-toggle="modal" data-bs-target="#eliminarNota<?php echo $nota['id']; ?>" style="cursor: pointer;">
             <img src="../imagenes/basura.png" alt="borrar">
           </a>
         </div>
       </div>
       <!-- Incluir el modal de edición de este nota -->
       <?php include 'editar_nota.php'; ?>
+      <!-- Modal de confirmación para eliminar nota -->
+      <?php
+      $modal_id = "eliminarNota" . $nota['id'];
+      $titulo_modal = "Eliminar nota";
+      $mensaje_modal = "¿Estás seguro de que deseas eliminar esta nota? Esta acción es irreversible.";
+      $url_accion = "../php/borrar_nota.php?id=" . $nota['id'];
+      $texto_boton = "Eliminar nota";
+      include 'modal_eliminar.php';
+      ?>
     <?php endforeach; ?>
     <?php else: ?>
       <p>No tienes notas creadas aún.</p>

@@ -57,7 +57,7 @@ $conn->close();
   <!-- Contenido principal -->
   <div class="container my-5">
     <h1 class="mb-4">ITINERARIO</h1>
-    <a href="vista_itinerarios.php" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
+    <a href="vista_itinerarios.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
     <!-- Mostrar itinerarios agrupados -->
     <?php if (!empty($itinerarios_por_fecha)): ?>
       <?php foreach ($itinerarios_por_fecha as $fecha => $actividades): ?>
@@ -70,13 +70,21 @@ $conn->close();
                 <a data-bs-toggle="modal" data-bs-target="#editaritinerario<?php echo $itinerario['id']; ?>">
                   <img src="../imagenes/lapiz.png" alt="editar">
                 </a>
-                <a href="../php/borrar_itinerario.php?id=<?php echo $itinerario['id']; ?>"
-                    onclick="return confirm('¿Seguro que quieres eliminar este itinerario?');">
+                <a data-bs-toggle="modal" data-bs-target="#eliminarItinerario<?php echo $itinerario['id']; ?>" style="cursor: pointer;">
                   <img src="../imagenes/basura.png" alt="borrar">
                 </a>
               </div>
             </div>
             <?php include 'editar_itinerario.php'; ?>
+            <!-- Modal de confirmación para eliminar itinerario -->
+            <?php
+            $modal_id = "eliminarItinerario" . $itinerario['id'];
+            $titulo_modal = "Eliminar itinerario";
+            $mensaje_modal = "¿Estás seguro de que deseas eliminar este itinerario? Esta acción es irreversible.";
+            $url_accion = "../php/borrar_itinerario.php?id=" . $itinerario['id'];
+            $texto_boton = "Eliminar itinerario";
+            include 'modal_eliminar.php';
+            ?>
           <?php endforeach; ?>
         </div>
       <?php endforeach; ?>

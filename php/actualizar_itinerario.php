@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($stmt->execute()) {
     // Redirigir de vuelta a la página del itinerario editado
-    header("Location: ../html/detalle_itinerario.php?id=$id&mensaje=actualizado");
+    header("Location: ../html/detalle_itinerario.php?viaje_id=$viaje_id&dia=$dia&mensaje=actualizado");
     exit();
   } else {
     echo "Error al actualizar el itinerario: " . $stmt->error;

@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($stmt->execute()) {
     // Redirigir a lista de transportes
-    header("Location: ../html/vista_transportes.php");
+    header("Location: ../html/vista_transportes.php?id=$viaje_id&mensaje=creado");
     exit();
   } else {
     echo "Error al guardar transporte: " . $stmt->error;

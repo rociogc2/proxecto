@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio - Viajamos!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="icon" type="image/png" href="../imagenes/icono.png">
-  <link rel="stylesheet" href="../css/index.css">
-  <link rel="stylesheet" href="../css/menu_publico.css">
-  <link rel="stylesheet" href="../css/footer_publico.css">
+   <link rel="icon" type="image/png" href="imagenes/icono.png">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/menu_publico.css">
+  <link rel="stylesheet" href="css/footer_publico.css">
 </head>
 <body>
   <!-- Menú -->
@@ -18,11 +18,11 @@
     <h3 class="lead mb-4">Itinerarios, alojamientos, rincones y recuerdos, todo contigo</h3>
     <div class="inicio">
       <div class="bloque">
-        <img src="../imagenes/viajes.png" alt="pantalla_viajes">
+        <img src="imagenes/viajes.png" alt="pantalla_viajes">
         <p class="texto-imagen">Crea tu viaje</p>
       </div>
       <div class="bloque">
-        <img src="../imagenes/crear_alojamiento.png" alt="formulario-alojamientos">
+        <img src="imagenes/crear_alojamiento.png" alt="formulario-alojamientos">
         <p class="texto-imagen">Añade todo lo necesario para no perderte nada</p>
       </div>
     </div>
@@ -30,12 +30,11 @@
   <!-- Footer -->
   <div id="footer"></div>
   <!-- Se cargan el menu y el footer -->
-  <script src="../js/carga-html.js"></script>
+  <script src="js/carga-html.js"></script>
   <script>
-    loadHTML("menu", "menu_publico.html");
-    loadHTML("footer", "footer_publico.html");
+    loadHTML("menu", "html/menu_publico.html");
+    loadHTML("footer", "html/footer_publico.html");
   </script>
-  <script src="../js/formulario-modal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@ if (!empty($password)) {
 
 if ($stmt->execute()) {
   // Volver al perfil con mensaje de éxito
-  header("Location: ../html/perfil.php?ok=1");
+  header("Location: ../html/viajes.php?mensaje=perfil_actualizado");
   exit;
 } else {
   echo "Error al actualizar los datos: " . $conn->error;

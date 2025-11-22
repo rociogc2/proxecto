@@ -61,16 +61,24 @@ if (!isset($viaje_id) && isset($transporte['viaje_id'])) {
       </div>
       <div class="acciones">
         <button type="button" class="btn btn-custom-blue" data-bs-toggle="modal" data-bs-target="#editarTransporte<?php echo $transporte['id']; ?>">Modificar</button>
-        <a class="btn btn-danger" href="../php/borrar_transporte.php?id=<?= $id ?>"
-          onclick="return confirm('¿Seguro que quieres eliminar este transporte?');">
+        <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarTransporte<?php echo $transporte['id']; ?>" style="cursor: pointer;">
           Eliminar
         </a>
-        <a href="vista_transportes.php" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
+        <a href="vista_transportes.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
       </div>
     </div>
   </div>
   <!-- Footer -->
   <div id="footer"></div>
+  <!-- Modal de confirmación para eliminar transporte -->
+  <?php
+  $modal_id = "eliminarTransporte" . $transporte['id'];
+  $titulo_modal = "Eliminar transporte";
+  $mensaje_modal = "¿Estás seguro de que deseas eliminar este transporte? Esta acción es irreversible.";
+  $url_accion = "../php/borrar_transporte.php?id=" . $transporte['id'];
+  $texto_boton = "Eliminar transporte";
+  include 'modal_eliminar.php';
+  ?>
   <!-- Se cargan el menu y el footer -->
   <script src="../js/carga-html.js"></script>
   <script>
