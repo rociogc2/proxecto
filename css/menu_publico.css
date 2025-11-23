@@ -28,7 +28,8 @@
   filter: brightness(0.3);
 }
 
-/*--- RESPONSIVE --- */
+/*--- MEDIA QUERIES CONSOLIDADAS ---*/
+
 @media (max-width: 768px) {
   .navbar-nav {
     display: flex;
@@ -43,6 +44,15 @@
     text-align: left;
     font-size: 16px;
     padding: 8px 0;
+    color: #2c3e50;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  .navbar-toggler {
+    border-color: #2c3e50;
   }
 
   .logo {
@@ -61,6 +71,15 @@
 @media (max-width: 480px) {
   .navbar-nav .nav-link {
     font-size: 15px;
+    color: #2c3e50;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  .navbar-toggler {
+    border-color: #2c3e50;
   }
 
   .logo {

@@ -44,8 +44,30 @@ label, .registro, .btn-danger, .btn-custom-blue {
   border: none;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+/*--- MEDIA QUERIES CONSOLIDADAS ---*/
+
+@media (max-width: 480px) {
+  .perfil .row {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .perfil-text-center p {
+    font-size: 1rem;
+  }
+
+  .img-fluid-icono {
+    width: 45px;
+  }
+
+  .btn-custom-blue,
+  .btn-danger {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
   .perfil .row {
     padding: 1.5rem;
     max-width: 90%;
@@ -58,19 +80,29 @@ label, .registro, .btn-danger, .btn-custom-blue {
   .img-fluid-icono {
     width: 50px;
   }
+
+  .btn-custom-blue,
+  .btn-danger {
+    font-size: 1rem;
+  }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 769px) {
   .perfil .row {
-    padding: 1rem;
+    padding: 2rem;
+    max-width: 100%;
   }
 
   .perfil-text-center p {
-    font-size: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .img-fluid-icono {
+    width: 60px;
   }
 
   .btn-custom-blue,
   .btn-danger {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }

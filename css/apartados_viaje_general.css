@@ -9,11 +9,12 @@
   gap: 8px;
   margin-bottom: 15px;
   justify-content: center;
-  width: 100%;
+  width: auto;
   max-width: none;
   margin-left: 0;
   margin-right: 0;
   padding: 0 10px;
+  overflow: visible;
 }
 
 .btn-custom-blue-crear, .btn-secondary {
@@ -23,55 +24,6 @@
   border-radius: 10px;
   flex: 0 1 auto;
   min-width: 120px;
-}
-
-@media (min-width: 480px) {
-  .botones-superiores {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0 15px;
-    margin-bottom: 20px;
-  }
-
-  .btn-custom-blue-crear, .btn-secondary {
-    padding: 8px 14px;
-    font-size: 0.9em;
-  }
-}
-
-@media (min-width: 576px) {
-  .botones-superiores {
-    justify-content: flex-end;
-    padding: 0 10px;
-  }
-
-  .btn-custom-blue-crear, .btn-secondary {
-    padding: 10px 14px;
-    font-size: 0.95em;
-  }
-}
-
-@media (min-width: 768px) {
-  .botones-superiores {
-    padding: 0;
-  }
-
-  .btn-custom-blue-crear, .btn-secondary {
-    padding: 10px 16px;
-    font-size: 1em;
-  }
-}
-
-@media (min-width: 992px) {
-  .botones-superiores {
-    margin-bottom: 30px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .botones-superiores {
-    gap: 15px;
-  }
 }
 
 /*--- ESTILOS LISTADOS ---*/
@@ -88,44 +40,13 @@
   margin: 0 0 15px 0;
 }
 
-@media (min-width: 480px) {
-  .lista {
-    padding: 20px;
-    margin: 0 0 20px 0;
-  }
-}
-
-@media (min-width: 576px) {
-  .lista {
-    padding: 25px;
-    margin: 0 0 20px 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .lista {
-    padding: 30px;
-    padding-right: 30px;
-    min-height: auto;
-    margin: 0 auto 20px auto;
-  }
-}
-
-@media (min-width: 992px) {
-  .lista {
-    padding: 40px;
-    padding-right: 40px;
-    min-height: 150px;
-    margin: 0 auto 25px auto;
-  }
-}
-
 .datos {
-  padding: 5px 0;
+  padding: 0;
   margin: 0;
-  font-size: 1em;
+  font-size: 0.95em;
   font-weight: bold;
   display: block;
+  line-height: 1.1;
 }
 
 .acciones {
@@ -144,6 +65,40 @@
   height: 25px;
   cursor: pointer;
 }
+
+/*--- BOTONES PERSONALIZADOS EN APARTADOS VIAJE ---*/
+.btn-custom-blue-crear {
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.btn-custom-blue-crear:hover {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #2c3e50;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/*--- ESTILOS MENÚ Y FOOTER ---*/
+/*--- En este caso se sobreescriben el menú y el footer general para cambiar el color de los textos ---*/
+#menu *, #footer * {
+  color: #2c3e50;
+}
+
+#menu .usuario {
+  content: url("../imagenes/perfil.png");
+}
+
+/*--- MEDIA QUERIES CONSOLIDADAS ---*/
 
 @media (max-width: 375px) {
   .lista {
@@ -184,9 +139,22 @@
 }
 
 @media (min-width: 415px) and (max-width: 575px) {
+  .botones-superiores {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    padding: 8px 14px;
+    font-size: 0.9em;
+  }
+
   .lista {
     padding: 20px;
     padding-right: 60px;
+    margin: 0 0 20px 0;
   }
 
   .acciones {
@@ -195,6 +163,17 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
+  .botones-superiores {
+    justify-content: flex-end;
+    padding: 0 30px;
+    margin-right: -50px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    padding: 10px 14px;
+    font-size: 0.95em;
+  }
+
   .lista {
     padding: 25px;
     padding-right: 60px;
@@ -206,34 +185,46 @@
   }
 }
 
-/*--- BOTONES PERSONALIZADOS EN APARTADOS VIAJE ---*/
-.btn-custom-blue-crear {
-  background-color: #3498db;
-  color: #ffffff;
-  border: none;
-  font-weight: bold;
-  margin-bottom: 20px;
+@media (min-width: 768px) {
+  .botones-superiores {
+    padding: 0 40px;
+    margin-right: -60px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    padding: 10px 16px;
+    font-size: 1em;
+  }
+
+  .lista {
+    padding: 25px;
+    padding-right: 25px;
+    min-height: auto;
+    margin: 0 auto 20px auto;
+    max-width: 700px;
+  }
 }
 
-.btn-custom-blue-crear:hover {
-  background-color: #27ae60;
-  color: white;
+@media (min-width: 992px) {
+  .botones-superiores {
+    margin-bottom: 30px;
+    margin-right: 70px;
+    padding: 0 40px;
+  }
+
+  .lista {
+    padding: 35px;
+    padding-right: 35px;
+    min-height: auto;
+    margin: 0 auto 25px auto;
+    max-width: 750px;
+  }
 }
 
-.btn-secondary {
-  background-color: #2c3e50;
-  color: #ffffff;
-  border: none;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-/*--- ESTILOS MENÚ Y FOOTER ---*/
-/*--- En este caso se sobreescriben el menú y el footer general para cambiar el color de los textos ---*/
-#menu *, #footer * {
-  color: #2c3e50;
-}
-
-#menu .usuario {
-  content: url("../imagenes/perfil.png");
+@media (min-width: 1200px) {
+  .botones-superiores {
+    gap: 15px;
+    margin-right: 230px;
+    padding: 0 40px;
+  }
 }

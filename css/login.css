@@ -56,8 +56,22 @@ body, html {
   background-color: #2980B9;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
+/*--- MEDIA QUERIES CONSOLIDADAS ---*/
+
+@media (max-width: 480px) {
+  .col-md-6.image-container {
+    display: none;
+  }
+
+  .form-container {
+    padding: 20px 15px;
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
   .col-md-6.image-container {
     display: none;
   }
@@ -70,8 +84,15 @@ body, html {
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 769px) {
   .form-container {
-    padding: 20px 15px;
+    padding: 40px;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  .col-md-6.image-container {
+    display: flex;
   }
 }

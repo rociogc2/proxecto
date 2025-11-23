@@ -40,11 +40,12 @@
   gap: 8px;
   margin-bottom: 15px;
   justify-content: center;
-  width: 100%;
+  width: auto;
   max-width: none;
   margin-left: 0;
   margin-right: 0;
   padding: 0 10px;
+  overflow: visible;
 }
 
 .btn-custom-blue-crear, .btn-secondary {
@@ -54,7 +55,9 @@
   padding: 8px 12px;
 }
 
-@media (min-width: 480px) {
+/*--- MEDIA QUERIES CONSOLIDADAS ---*/
+
+@media (min-width: 480px) and (max-width: 575px) {
   .botones-superiores {
     padding: 0 15px;
     margin-bottom: 20px;
@@ -72,26 +75,41 @@
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 767px) {
   .botones-superiores {
     justify-content: flex-end;
-    padding: 0 10px;
+    padding: 0 30px;
+    margin-right: -50px;
   }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    font-size: 0.9em;
+    padding: 8px 14px;
+  }
+
   .lista {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 15px;
+    margin: 0 0 20px 0;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
   .botones-superiores {
-    padding: 0;
+    padding: 0 40px;
+    margin-right: -60px;
   }
 
   .btn-custom-blue {
     margin-left: auto;
     display: block;
   }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+
   .lista {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
@@ -99,16 +117,38 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 992px) and (max-width: 1199px) {
+  .botones-superiores {
+    margin-right: 20px;
+    padding: 0 40px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+
   .lista {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
+    margin: 0 auto 25px auto;
   }
 }
 
 @media (min-width: 1200px) {
+  .botones-superiores {
+    margin-right: 20px;
+    padding: 0 40px;
+  }
+
+  .btn-custom-blue-crear, .btn-secondary {
+    font-size: 1em;
+    padding: 10px 16px;
+  }
+
   .lista {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 25px;
+    margin: 0 auto 25px auto;
   }
 }

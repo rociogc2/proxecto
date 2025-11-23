@@ -72,39 +72,9 @@ html, body {
   width: 100%;
 }
 
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  .card {
-    width: 250px;
-    margin: 10px;
-  }
-
-  .card-img-top {
-    height: 160px;
-  }
-
-  .btn-custom-blue,
-  .btn-danger {
-    padding: 10px 15px;
-    font-size: 14px;
-  }
-
-  .modal-title {
-    font-size: 20px;
-  }
-
-  .cards-wrapper {
-    gap: 15px;
-  }
-
-  .container-fluid-viajes {
-    padding: 15px 0;
-  }
-}
+/* --- MEDIA QUERIES CONSOLIDADAS --- */
 
 @media (max-width: 480px) {
-
   html, body {
     background-position: top;
     font-size: 14px;
@@ -144,5 +114,63 @@ html, body {
 
   .container-fluid-viajes {
     padding: 10px 5px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    width: 250px;
+    margin: 10px;
+  }
+
+  .card-img-top {
+    height: 160px;
+  }
+
+  .btn-custom-blue,
+  .btn-danger {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .cards-wrapper {
+    gap: 15px;
+  }
+
+  .container-fluid-viajes {
+    padding: 15px 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .card {
+    width: 300px;
+    margin: 15px;
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
+
+  .btn-custom-blue,
+  .btn-danger {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+  }
+
+  .cards-wrapper {
+    gap: 20px;
+  }
+
+  .container-fluid-viajes {
+    padding: 20px 0;
   }
 }

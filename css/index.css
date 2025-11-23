@@ -82,25 +82,7 @@ main h3 {
   text-align: center;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  main h1 {
-    font-size: 1.8rem;
-  }
-
-  .inicio {
-    flex-direction: column;
-    padding: 1.5rem;
-  }
-
-  .inicio img {
-    width: 100%;
-  }
-
-  .bloque {
-    width: 100%;
-  }
-}
+/* --- MEDIA QUERIES CONSOLIDADAS --- */
 
 @media (max-width: 480px) {
   main h2 {
@@ -111,7 +93,69 @@ main h3 {
     font-size: 1rem;
   }
 
+  .inicio {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .inicio img {
+    width: 100%;
+  }
+
+  .bloque {
+    width: 100%;
+  }
+
   .texto-imagen {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  main h1 {
+    font-size: 2rem;
+  }
+
+  .inicio {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .inicio img {
+    width: 100%;
+  }
+
+  .bloque {
+    width: 100%;
+  }
+
+  .texto-imagen {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  main h2 {
+    font-size: 2.6rem;
+  }
+
+  main h3 {
+    font-size: 1.3rem;
+  }
+
+  .inicio {
+    flex-direction: row;
+    padding: 1.8rem 4.5rem;
+    gap: 5rem;
+  }
+
+  .bloque {
+    width: 48%;
+  }
+
+  .texto-imagen {
+    font-size: 1.2rem;
   }
 }

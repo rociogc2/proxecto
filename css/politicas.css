@@ -2,6 +2,7 @@
 .texto {
   background-color: #f1c40f;
   border-radius: 20px;
+  padding: 15px;
 }
 
 /*-- ESTILOS BOTONES ---*/
@@ -29,26 +30,6 @@
   padding: 0 10px;
 }
 
-@media (min-width: 480px) {
-  .botones-contenedor {
-    padding: 0 15px;
-    margin-bottom: 20px;
-  }
-}
-
-@media (min-width: 576px) {
-  .botones-contenedor {
-    justify-content: flex-end;
-    padding: 0 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .botones-contenedor {
-    padding: 0;
-  }
-}
-
 /*--- ESTILOS MENÚ Y FOOTER ---*/
 /*--- En este caso se sobreescriben el menú y el footer general para cambiar el color de los textos ---*/
 #menu *, #footer * {
@@ -59,34 +40,28 @@
   content: url("../imagenes/perfil.png");
 }
 
-/*--- RESPONSIVE ---*/
-@media (min-width: 576px) {
-  .texto {
-    padding: 20px;
-  }
-}
+/*--- MEDIA QUERIES CONSOLIDADAS ---*/
 
-@media (min-width: 768px) {
-  body {
-    margin: 10px;
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.3em;
   }
 
   p {
-    font-size: 0.9em;
+    font-size: 0.75em;
   }
 
   .texto {
-    padding: 30px;
+    padding: 15px;
+  }
+
+  .botones-contenedor {
+    padding: 0 10px;
+    margin-bottom: 15px;
   }
 }
 
-@media (min-width: 992px) {
-  .texto {
-    padding: 40px;
-  }
-}
-
-@media (max-width: 575px) {
+@media (min-width: 481px) and (max-width: 575px) {
   h1 {
     font-size: 1.5em;
   }
@@ -98,14 +73,56 @@
   .texto {
     padding: 15px;
   }
+
+  .botones-contenedor {
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.3em;
+@media (min-width: 576px) and (max-width: 767px) {
+  .texto {
+    padding: 20px;
+  }
+
+  .botones-contenedor {
+    justify-content: flex-end;
+    padding: 0 10px;
   }
 
   p {
-    font-size: 0.75em;
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    margin: 10px;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  .texto {
+    padding: 30px;
+  }
+
+  .botones-contenedor {
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  p {
+    font-size: 1em;
+  }
+
+  .texto {
+    padding: 40px;
+  }
+
+  .botones-contenedor {
+    padding: 0;
   }
 }
