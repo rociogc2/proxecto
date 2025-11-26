@@ -21,8 +21,23 @@ if (isset($_GET['id'])) {
   $stmt->bind_param("i", $id);
 
   if ($stmt->execute()) {
-    // Redirigimos a la página de detalle del itinerario con los parámetros correctos
-    header("Location: ../html/detalle_itinerario.php?viaje_id=$viaje_id&dia=$dia&mensaje=eliminado");
+    // Redirigimos a la página de lista de itinerarios o a detalle_itinerario.php si hay más itinerarios en esa fecha
+    // Primero verificamos si aún hay itinerarios para ese día
+    $sql_check = "SELECT COUNT(*) as count FROM itinerarios WHERE viaje_id = ? AND dia = ?";
+    $stmt_check = $conn->prepare($sql_check);
+    $stmt_check->bind_param("is", $viaje_id, $dia);
+    $stmt_check->execute();
+    $resultado_check = $stmt_check->get_result();
+    $row = $resultado_check->fetch_assoc();
+    $stmt_check->close();
+
+    if ($row['count'] > 0) {
+      // Si aún hay itinerarios ese día, volvemos a detalle_itinerario.php
+      header("Location: ../html/detalle_itinerario.php?viaje_id=$viaje_id&dia=$dia&mensaje=eliminado");
+    } else {
+      // Si no quedan itinerarios ese día, volvemos a vista_itinerarios.php
+      header("Location: ../html/vista_itinerarios.php?id=$viaje_id&mensaje=eliminado");
+    }
     exit();
   } else {
     echo "Error al eliminar el itinerario.";

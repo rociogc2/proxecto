@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        <form action="/proxecto/php/crear_itinerario.php" method="POST">
+        <form action="../php/crear_itinerario.php" method="POST">
           <input type="hidden" name="viaje_id" value="<?php echo isset($_GET['id']) ? htmlspecialchars($_GET['id']) : ''; ?>">
           <div class="mb-3">
             <label for="diaItinerario" class="form-label">Día</label>

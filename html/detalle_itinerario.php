@@ -57,7 +57,9 @@ $conn->close();
   <!-- Contenido principal -->
   <div class="container my-5">
     <h1 class="mb-4">ITINERARIO</h1>
-    <a href="vista_itinerarios.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
+    <div class="botones-superiores d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-sm-end">
+      <a href="vista_itinerarios.php?id=<?php echo $viaje_id; ?>" class="btn btn-secondary"><img src="../imagenes/volver.png" alt="flecha"> Atrás</a>
+    </div>
     <!-- Mostrar itinerarios agrupados -->
     <?php if (!empty($itinerarios_por_fecha)): ?>
       <?php foreach ($itinerarios_por_fecha as $fecha => $actividades): ?>

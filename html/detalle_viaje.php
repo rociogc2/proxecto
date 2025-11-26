@@ -3,6 +3,7 @@ include '../php/session.php';
 
 // Obtener este viaje de este usuario
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$viaje_id = $id;
 
 $sql = "SELECT * FROM viajes WHERE id = ? AND usuario_id = ?";
 $stmt = $conn->prepare($sql);
