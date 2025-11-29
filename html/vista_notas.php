@@ -1,4 +1,8 @@
 <?php
+// Archivo: vista_notas.php
+// Propósito: Mostrar notas asociadas a un viaje
+// Requiere: Usuario autenticado y ID de viaje válido
+
 include '../php/session.php';
 
 // Obtener el ID del viaje desde la URL

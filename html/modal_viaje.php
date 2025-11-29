@@ -1,3 +1,7 @@
+<!-- Archivo: modal_viaje.php -->
+<!-- Propósito: Formulario modal para crear un nuevo viaje -->
+<!-- Se carga dinámicamente en la página de viajes -->
+
 <div class="modal" id="formularioViajes" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">

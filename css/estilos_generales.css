@@ -1,4 +1,6 @@
-/* --- ESTILOS GENERALES ---*/
+/* ========== ESTILOS GENERALES ========== */
+/* Estilos base para body, headings y párrafos */
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #ffffff;
@@ -21,7 +23,9 @@ p {
   padding-bottom: 20px;
 }
 
-/*--- BOTONES PERSONALIZADOS ---*/
+/* ========== BOTONES PERSONALIZADOS ========== */
+/* Estilos para botones customizados del sitio */
+
 .btn-custom-blue {
   background-color: #3498db;
   color: #ffffff;
@@ -46,7 +50,8 @@ p {
   color: white;
 }
 
-/*--- ESTILOS MODAL ---*/
+/* ========== ESTILOS MODAL ========== */
+
 label {
   font-weight: bold;
 }

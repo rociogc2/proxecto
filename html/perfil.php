@@ -1,4 +1,8 @@
 <?php
+// Archivo: perfil.php
+// Propósito: Mostrar y editar perfil del usuario autenticado
+// Requiere: Usuario autenticado
+
 include '../php/session.php';
 
 // Preparar consulta para obtener datos del usuario por ID

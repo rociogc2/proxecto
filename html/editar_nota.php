@@ -1,4 +1,8 @@
 <?php
+// Archivo: editar_nota.php
+// Propósito: Formulario para editar una nota existente
+// Requiere: Usuario autenticado y ID de nota válido
+
 include '../php/session.php';
 
 // Determinar el ID del viaje actual sin errores

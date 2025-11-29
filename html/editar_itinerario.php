@@ -1,4 +1,8 @@
 <?php
+// Archivo: editar_itinerario.php
+// Propósito: Formulario para editar una actividad del itinerario
+// Requiere: Usuario autenticado y ID de actividad válido
+
 include '../php/session.php';
 
 // Determinar el ID del viaje actual sin errores

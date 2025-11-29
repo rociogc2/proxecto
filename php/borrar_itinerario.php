@@ -1,10 +1,15 @@
 <?php
+// Archivo: borrar_itinerario.php
+// Propósito: Eliminar una actividad del itinerario de un viaje
+// Requiere: ID de la actividad válido en parámetro GET
+
 include 'conexion.php';
 
+// Verificar que se ha pasado el ID de la actividad
 if (isset($_GET['id'])) {
   $id = intval($_GET['id']);
 
-  // Obtener el viaje_id y dia antes de eliminar
+  // Obtener viaje_id y dia antes de eliminar para redireccionar correctamente
   $sql_get = "SELECT viaje_id, dia FROM itinerarios WHERE id = ?";
   $stmt_get = $conn->prepare($sql_get);
   $stmt_get->bind_param("i", $id);
@@ -15,14 +20,13 @@ if (isset($_GET['id'])) {
   $dia = $itinerario['dia'] ?? '';
   $stmt_get->close();
 
-  // Preparar la consulta para eliminar
+  // Preparar consulta para eliminar actividad
   $sql = "DELETE FROM itinerarios WHERE id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("i", $id);
 
   if ($stmt->execute()) {
-    // Redirigimos a la página de lista de itinerarios o a detalle_itinerario.php si hay más itinerarios en esa fecha
-    // Primero verificamos si aún hay itinerarios para ese día
+    // Verificar si aún hay actividades para ese día
     $sql_check = "SELECT COUNT(*) as count FROM itinerarios WHERE viaje_id = ? AND dia = ?";
     $stmt_check = $conn->prepare($sql_check);
     $stmt_check->bind_param("is", $viaje_id, $dia);

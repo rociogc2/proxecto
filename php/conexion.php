@@ -1,16 +1,20 @@
 <?php
-// Datos de conexión a la base de datos
+// Archivo: conexion.php
+// Propósito: Establecer conexión a la base de datos MySQL
+// BD: viajamos_db
+
+// Credenciales de conexión
 $servername = 'localhost';
 $username = 'root';
 $password = '';
 $dbname = 'viajamos_db';
 
-// Crear conexión
+// Crear conexión a base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verificar la conexión
+// Verificar que la conexión sea exitosa
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+  die("Conexión fallida: " . $conn->connect_error);
 }
 
 // Crear la base de datos si no existe

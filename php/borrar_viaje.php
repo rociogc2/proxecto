@@ -1,16 +1,21 @@
 <?php
+// Archivo: borrar_viaje.php
+// Propósito: Eliminar un viaje de la base de datos
+// Requiere: ID del viaje válido en parámetro GET
+
 include 'conexion.php';
 
+// Verificar que se ha pasado el ID del viaje
 if (isset($_GET['id'])) {
   $id = intval($_GET['id']);
 
-  // Preparar la consulta
+  // Preparar consulta para eliminar viaje
   $sql = "DELETE FROM viajes WHERE id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("i", $id);
 
   if ($stmt->execute()) {
-    // Redirigimos a la página de lista de viajes
+    // Redirigir a página de viajes con mensaje de éxito
     header("Location: ../html/viajes.php?mensaje=eliminado");
     exit();
   } else {

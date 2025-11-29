@@ -1,5 +1,9 @@
 <?php
-include "../php/session.php";
+// Archivo: detalle_transporte.php
+// Propósito: Mostrar detalles de un transporte específico
+// Requiere: Usuario autenticado y ID de transporte válido
+
+include '../php/session.php';
 
 // Verificar si llega el ID por GET
 if (!isset($_GET['id'])) {

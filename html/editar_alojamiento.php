@@ -1,4 +1,8 @@
 <?php
+// Archivo: editar_alojamiento.php
+// Propósito: Formulario para editar datos de un alojamiento existente
+// Requiere: Usuario autenticado y ID de alojamiento válido
+
 include '../php/session.php';
 
 // Determinar el ID del viaje actual sin errores

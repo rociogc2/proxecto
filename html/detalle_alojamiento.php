@@ -1,5 +1,9 @@
 <?php
-include "../php/session.php";
+// Archivo: detalle_alojamiento.php
+// Propósito: Mostrar detalles de un alojamiento específico
+// Requiere: Usuario autenticado y ID de alojamiento válido
+
+include '../php/session.php';
 
 // Verificar si llega el ID por GET
 if (!isset($_GET['id'])) {

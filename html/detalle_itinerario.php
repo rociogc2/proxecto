@@ -1,4 +1,8 @@
 <?php
+// Archivo: detalle_itinerario.php
+// Propósito: Mostrar actividades del itinerario para un día específico
+// Requiere: Usuario autenticado, ID de viaje y fecha válidos
+
 include '../php/session.php';
 
 // Obtener datos desde la URL

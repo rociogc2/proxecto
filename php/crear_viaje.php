@@ -1,48 +1,50 @@
 <?php
-// Incluír la conexión a la BD y gestionar sesión
+// Archivo: crear_viaje.php
+// Propósito: Crear un nuevo viaje con foto
+// Requiere: Usuario autenticado
+
 include 'session.php';
 
-// Procesar el formulario si se envió
+// Procesar formulario POST para crear nuevo viaje
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Obtener datos del formulario
   $destino = $_POST["destino"];
   $inicio = $_POST["inicio"];
   $fin = $_POST["fin"];
   $descripcion = $_POST["descripcion"];
-  // Valor de foto por defecto (null)
   $foto = null;
+  $usuario_id = $_SESSION['usuario_id'];
 
-  // Comprobar si se subió una foto
+  // Procesar carga de foto
   if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
     $carpetaDestino = '../imagenes/viajes/';
     if (!file_exists($carpetaDestino)) {
-        mkdir($carpetaDestino, 0777, true);
+      mkdir($carpetaDestino, 0777, true);
     }
     $nombreArchivo = time() . '_' . basename($_FILES['foto']['name']);
     $rutaDestino = $carpetaDestino . $nombreArchivo;
-    // Mover la foto subida a la carpeta destino
+    // Mover archivo subido al destino
     if (move_uploaded_file($_FILES['foto']['tmp_name'], $rutaDestino)) {
       $foto = '../imagenes/viajes/' . $nombreArchivo;
     }
   } else {
-      die("Error al subir la foto.");
+    die("Error al subir la foto.");
   }
 
-  // Preparar y ejecutar la inserción del nuevo viaje
+  // Ejecutar inserción del nuevo viaje
   $sql = "INSERT INTO viajes (usuario_id, destino, inicio, fin, descripcion, foto) VALUES (?, ?, ?, ?, ?, ?)";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("isssss", $usuario_id, $destino, $inicio, $fin, $descripcion, $foto);
 
   if ($stmt->execute()) {
-    // Redirigir a la página de viajes para que pueda ver el nuevo viaje
+    // Redirigir a página de viajes después de crear
     header("Location: ../html/viajes.php");
     exit();
   } else {
     echo "Error: " . $stmt->error;
   }
 
-  // Cerrar la conexión
   $stmt->close();
 }
-// Cerrar conexión con BD
 $conn->close();
 ?>

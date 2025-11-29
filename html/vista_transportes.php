@@ -1,10 +1,14 @@
 <?php
+// Archivo: vista_transportes.php
+// Propósito: Mostrar lista de transportes registrados para un viaje
+// Requiere: Usuario autenticado y ID de viaje válido
+
 include '../php/session.php';
 
-// Obtener el ID del viaje desde la URL
+// Obtener ID del viaje desde parámetro URL
 $viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Obtener datos del viaje para las fechas límite
+// Obtener datos del viaje para mostrar fechas límite
 $sql_viaje = "SELECT inicio, fin FROM viajes WHERE id = ?";
 $stmt_viaje = $conn->prepare($sql_viaje);
 $stmt_viaje->bind_param("i", $viaje_id);
@@ -14,13 +18,14 @@ $inicioViaje = $viaje_data['inicio'] ?? '';
 $finViaje = $viaje_data['fin'] ?? '';
 $stmt_viaje->close();
 
-// Obtener los transportes de este viaje
+// Obtener lista de transportes del viaje
 $sql = "SELECT * FROM transportes WHERE viaje_id = ? ORDER BY dia DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $viaje_id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
+// Almacenar transportes en array
 $transportes = [];
 while ($fila = $resultado->fetch_assoc()) {
   $transportes[] = $fila;

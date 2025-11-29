@@ -1,4 +1,8 @@
 <?php
+// Archivo: vista_fotos.php
+// Propósito: Mostrar galería de fotos del viaje
+// Requiere: Usuario autenticado y ID de viaje válido
+
 include '../php/session.php';
 $viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 

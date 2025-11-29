@@ -1,13 +1,18 @@
 <?php
+// Archivo: viajes.php
+// Propósito: Mostrar lista de viajes del usuario autenticado
+// Requiere: Usuario autenticado
+
 include '../php/session.php';
 
-// Obtener los viajes de este usuario
+// Obtener viajes del usuario actual de la base de datos
 $sql = "SELECT * FROM viajes WHERE usuario_id = ? ORDER BY inicio DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
+// Almacenar viajes en array
 $viajes = [];
 while ($fila = $resultado->fetch_assoc()) {
   $viajes[] = $fila;
@@ -32,19 +37,20 @@ $conn->close();
 </head>
 
 <body>
-  <!-- Menú -->
+  <!-- Menú de navegación privado -->
   <div id="menu"></div>
   <div class="container-fluid-viajes">
     <h1>Bienvenido/a <?php echo htmlspecialchars($nombre); ?></h1>
-    <!-- Botón arriba -->
+    <!-- Botón para crear nuevo viaje -->
     <a id="crear" class="btn btn-custom-blue btn-lg mb-4" data-bs-toggle="modal" data-bs-target="#formularioViajes">Crear viaje</a>
-    <!-- Contenedor de cartas -->
+    <!-- Contenedor de tarjetas de viajes -->
     <div class="cards-wrapper">
-      <!-- Las cartas de los viajes se cargan dinámicamente cuando haya viajes creados -->
+      <!-- Mostrar lista de viajes del usuario -->
       <div class="cards-wrapper d-flex flex-wrap">
         <?php if (!empty($viajes)): ?>
           <?php foreach ($viajes as $viaje): ?>
             <div class="card" style="width: 18rem; margin-right: 20px; margin-bottom: 20px;">
+              <!-- Mostrar foto del viaje si existe -->
               <?php if(!empty($viaje['foto'])): ?>
                 <img src="<?php echo htmlspecialchars($viaje['foto']); ?>" class="card-img-top" alt="foto_<?php echo htmlspecialchars($viaje['destino']); ?>">
               <?php endif; ?>

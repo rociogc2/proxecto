@@ -1,4 +1,8 @@
 <?php
+// Archivo: editar_viaje.php
+// Propósito: Formulario para editar datos de un viaje existente
+// Requiere: Usuario autenticado y ID de viaje válido
+
 include '../php/session.php';
 
 // Si viene desde detalle_viaje.php se usa $datosViaje, si no, usa $viaje del foreach

@@ -1,10 +1,14 @@
 <?php
+// Archivo: vista_alojamientos.php
+// Propósito: Mostrar lista de alojamientos registrados para un viaje
+// Requiere: Usuario autenticado y ID de viaje válido
+
 include '../php/session.php';
 
-// Obtener el ID del viaje desde la URL
+// Obtener ID del viaje desde parámetro URL
 $viaje_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Obtener datos del viaje para las fechas límite
+// Obtener datos del viaje para mostrar fechas límite
 $sql_viaje = "SELECT inicio, fin FROM viajes WHERE id = ?";
 $stmt_viaje = $conn->prepare($sql_viaje);
 $stmt_viaje->bind_param("i", $viaje_id);
@@ -14,13 +18,14 @@ $inicioViaje = $viaje_data['inicio'] ?? '';
 $finViaje = $viaje_data['fin'] ?? '';
 $stmt_viaje->close();
 
-// Obtener los alojamientos de este viaje
+// Obtener lista de alojamientos del viaje
 $sql = "SELECT * FROM alojamientos WHERE viaje_id = ? ORDER BY fecha_inicio DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $viaje_id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
+// Almacenar alojamientos en array
 $alojamientos = [];
 while ($fila = $resultado->fetch_assoc()) {
   $alojamientos[] = $fila;

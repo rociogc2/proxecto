@@ -1,4 +1,8 @@
 <?php
+// Archivo: vista_itinerarios.php
+// Propósito: Mostrar itinerario del viaje agrupado por fechas
+// Requiere: Usuario autenticado y ID de viaje válido
+
 include '../php/session.php';
 
 // Obtener el ID del viaje desde la URL

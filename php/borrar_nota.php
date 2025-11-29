@@ -1,10 +1,15 @@
 <?php
+// Archivo: borrar_nota.php
+// Propósito: Eliminar una nota asociada a un viaje
+// Requiere: ID de la nota válido en parámetro GET
+
 include 'conexion.php';
 
+// Verificar que se ha pasado el ID de la nota
 if (isset($_GET['id'])) {
   $id = intval($_GET['id']);
 
-  // Obtener el viaje_id antes de eliminar
+  // Obtener viaje_id antes de eliminar para redireccionar correctamente
   $sql_get = "SELECT viaje_id FROM notas WHERE id = ?";
   $stmt_get = $conn->prepare($sql_get);
   $stmt_get->bind_param("i", $id);
@@ -14,13 +19,13 @@ if (isset($_GET['id'])) {
   $viaje_id = $nota['viaje_id'] ?? 0;
   $stmt_get->close();
 
-  // Preparar la consulta
+  // Preparar consulta para eliminar nota
   $sql = "DELETE FROM notas WHERE id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->bind_param("i", $id);
 
   if ($stmt->execute()) {
-    // Redirigimos a la página de lista de notas con el viaje_id correcto
+    // Redirigir a vista de notas del viaje
     header("Location: ../html/vista_notas.php?id=$viaje_id&mensaje=eliminado");
     exit();
   } else {
@@ -28,6 +33,11 @@ if (isset($_GET['id'])) {
   }
 } else {
   echo "No se recibió el ID de la nota.";
+}
+
+$stmt->close();
+$conn->close();
+?>
 }
 
 $stmt->close();

@@ -1,4 +1,8 @@
 <?php
+// Archivo: detalle_viaje.php
+// Propósito: Mostrar detalles completos de un viaje específico
+// Requiere: Usuario autenticado y ID de viaje válido
+
 include '../php/session.php';
 
 // Obtener este viaje de este usuario
